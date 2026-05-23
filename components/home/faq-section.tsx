@@ -1,0 +1,165 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaClock,
+  FaFacebookF,
+  FaTwitter,
+  FaPinterestP,
+  FaLinkedinIn,
+  FaTelegramPlane,
+} from "react-icons/fa"
+
+const faqItems = [
+  {
+    value: "item-1",
+    trigger: "What types of air compressors do you offer?",
+    content:
+      "We offer a comprehensive range including High Pressure, Low Pressure, Medium Pressure compressors, and Vacuum Pump solutions. Each is designed for specific industrial applications.",
+  },
+  {
+    value: "item-2",
+    trigger: "What is your delivery timeline?",
+    content:
+      "We guarantee 100% on-time delivery within India. Most orders are processed and shipped within 5-7 business days depending on the product complexity.",
+  },
+  {
+    value: "item-3",
+    trigger: "Do you provide after-sales support?",
+    content:
+      "Yes, we provide comprehensive after-sales services including maintenance, spare parts, and technical support. Our professional team is available Monday to Saturday from 09:00 AM to 07:00 PM.",
+  },
+  {
+    value: "item-4",
+    trigger: "What quality standards do your products meet?",
+    content:
+      "Our products are manufactured using premium quality materials and the latest technology, ensuring durability and optimal performance for industrial applications.",
+  },
+  {
+    value: "item-5",
+    trigger: "Can I get a custom solution for my specific needs?",
+    content:
+      "Absolutely! We offer tailored compressed air solutions. Our experienced team can design a system that perfectly fits your industrial requirements.",
+  },
+  {
+    value: "item-6",
+    trigger: "How can I request a quote?",
+    content:
+      "You can request a quote through our website, call us directly at +91 9904 913 616 or +91 8128 333 901, or email us at heronair21@gmail.com.",
+  },
+]
+
+export function FaqSection() {
+  return (
+    <section className="bg-white px-6 py-24 transition-colors dark:bg-[#08101d]">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 text-3xl font-semibold text-slate-900 md:text-4xl dark:text-white">
+            Frequently Asked Questions
+          </h1>
+        </div>
+
+        <Accordion defaultValue={["item-1"]} className="w-full space-y-4">
+          {faqItems.map((item) => (
+            <AccordionItem
+              key={item.value}
+              value={item.value}
+              className="transform rounded-lg border border-slate-100 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-[#0f1727] dark:shadow-[0_16px_40px_rgba(2,6,23,0.28)]"
+            >
+              <AccordionTrigger className="px-4 py-5 text-left font-medium text-slate-950 transition-colors hover:text-red-700 dark:text-white dark:hover:text-red-400">
+                {item.trigger}
+              </AccordionTrigger>
+              <AccordionContent className="px-4 pb-6 text-slate-600 dark:text-slate-300">
+                {item.content}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+        {/* CTA + Social icons moved below the accordion */}
+        <div className="mt-12 text-center">
+          <div className="flex justify-center">
+            <Button className="rounded-md bg-red-700 px-8 py-4 tracking-wider text-white uppercase hover:bg-red-800">
+              Contact Our Company
+            </Button>
+          </div>
+
+          <div className="mt-6 flex justify-center gap-3">
+            <a
+              href="#"
+              aria-label="facebook"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
+            >
+              <FaFacebookF size={16} />
+            </a>
+            <a
+              href="#"
+              aria-label="twitter"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
+            >
+              <FaTwitter size={16} />
+            </a>
+            <a
+              href="#"
+              aria-label="pinterest"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
+            >
+              <FaPinterestP size={16} />
+            </a>
+            <a
+              href="#"
+              aria-label="linkedin"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
+            >
+              <FaLinkedinIn size={16} />
+            </a>
+            <a
+              href="#"
+              aria-label="telegram"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
+            >
+              <FaTelegramPlane size={16} />
+            </a>
+          </div>
+
+          <div className="mt-8">
+            <div className="flex items-center justify-center gap-8">
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-red-700" />
+                <a
+                  href="tel:+919904913616"
+                  className="font-medium text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
+                >
+                  +91 9904 913 616
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-red-700" />
+                <a
+                  href="mailto:heronair21@gmail.com"
+                  className="font-medium text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
+                >
+                  heronair21@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaClock className="text-red-700" />
+                <span className="font-medium text-slate-900 dark:text-white">
+                  Mon - Sat, 9AM - 7PM
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
