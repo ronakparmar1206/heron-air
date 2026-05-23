@@ -16,10 +16,10 @@ export function ProductShowcase() {
             <div className="inline-flex border border-slate-200 bg-slate-50 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-slate-700 uppercase dark:border-white/10 dark:bg-white/6 dark:text-slate-200">
               Product Range
             </div>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-[2.7rem] dark:text-white">
+            <h2 className="mt-4 text-[2rem] font-semibold tracking-tight text-slate-950 sm:text-[2.7rem] dark:text-white">
               Compressor systems presented like a premium industrial catalogue.
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300">
+            <p className="mt-4 max-w-xl text-[0.96rem] leading-7 text-slate-600 dark:text-slate-300">
               Explore Heron Air&apos;s core categories through a stronger
               showcase that highlights performance, packaging, and
               application-driven product families.
@@ -35,7 +35,7 @@ export function ProductShowcase() {
           <article className="relative overflow-hidden rounded-none border border-slate-200 bg-[#1381c6] shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
             <div className="flex h-full min-h-[420px] flex-col justify-between p-6 sm:p-8">
               <div className="max-w-[12rem]">
-                <h3 className="text-[2.2rem] leading-[1.1] font-semibold tracking-tight text-white sm:text-[2.7rem]">
+                <h3 className="text-[1.8rem] leading-[1.08] font-semibold tracking-tight text-white sm:text-[2.7rem]">
                   High
                   <br />
                   Pressure
@@ -58,7 +58,7 @@ export function ProductShowcase() {
             <article className="relative overflow-hidden rounded-none border border-slate-200 bg-[#f70a33] shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
               <div className="flex min-h-[202px] flex-col justify-between p-6">
                 <div className="max-w-[11rem]">
-                  <h3 className="text-[1.55rem] leading-[1.15] font-semibold tracking-tight text-white sm:text-[1.9rem]">
+                  <h3 className="text-[1.35rem] leading-[1.15] font-semibold tracking-tight text-white sm:text-[1.9rem]">
                     Low
                     <br />
                     Pressure
@@ -80,7 +80,7 @@ export function ProductShowcase() {
             <article className="relative overflow-hidden rounded-none border border-slate-200 bg-black shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
               <div className="flex min-h-[202px] flex-col justify-between p-6">
                 <div className="max-w-[11rem]">
-                  <h3 className="text-[1.55rem] leading-[1.15] font-semibold tracking-tight text-white sm:text-[1.9rem]">
+                  <h3 className="text-[1.35rem] leading-[1.15] font-semibold tracking-tight text-white sm:text-[1.9rem]">
                     Medium
                     <br />
                     Pressure
@@ -103,7 +103,7 @@ export function ProductShowcase() {
           <article className="relative overflow-hidden rounded-none border border-slate-200 bg-[#116fa8] shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
             <div className="flex h-full min-h-[420px] flex-col justify-between p-6 sm:p-8">
               <div className="max-w-[13rem]">
-                <h3 className="text-[2rem] leading-[1.12] font-semibold tracking-tight text-white sm:text-[2.45rem]">
+                <h3 className="text-[1.7rem] leading-[1.12] font-semibold tracking-tight text-white sm:text-[2.45rem]">
                   Screw
                   <br />
                   Compressor

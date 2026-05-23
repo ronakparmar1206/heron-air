@@ -72,17 +72,17 @@ export function AboutSection() {
             <div className="inline-flex border border-red-200 bg-white px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-red-700 uppercase shadow-[0_8px_20px_rgba(220,38,38,0.06)] dark:border-red-400/20 dark:bg-white/6 dark:text-red-300">
               About Heron Air
             </div>
-            <h2 className="mt-5 max-w-2xl text-3xl leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.65rem] dark:text-white">
+            <h2 className="mt-5 max-w-2xl text-[2rem] leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.65rem] dark:text-white">
               Total compressed air solutions built with industrial clarity.
             </h2>
             <div className="mt-5 h-1 w-24 bg-linear-to-r from-red-600 to-sky-600" />
-            <p className="mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-[1.02rem] dark:text-slate-300">
+            <p className="mt-7 max-w-2xl text-[0.96rem] leading-7 text-slate-600 sm:text-[1.02rem] sm:leading-8 dark:text-slate-300">
               Founded in 2002, Heron Air has grown with a simple focus: engineer
               dependable compressor systems that combine strong output,
               efficient performance, and long-term service support for modern
               industrial use.
             </p>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-[1.02rem] dark:text-slate-300">
+            <p className="mt-4 max-w-2xl text-[0.96rem] leading-7 text-slate-600 sm:text-[1.02rem] sm:leading-8 dark:text-slate-300">
               From manufacturing to consultation and after-sales service, we
               build every interaction around reliability, response time, and
               product confidence so clients feel backed by a serious long-term

@@ -52,10 +52,10 @@ export function FeatureStrip() {
                   <div className="mx-auto mb-5 flex size-15 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-[0_8px_20px_rgba(15,23,42,0.04)] transition group-hover:border-red-200 group-hover:text-red-700 dark:border-white/10 dark:bg-[#131d31] dark:text-white">
                     <Icon className="size-7 stroke-[1.55]" />
                   </div>
-                  <h2 className="text-[1.7rem] font-medium tracking-tight text-slate-900 lg:text-[1.85rem] dark:text-white">
+                  <h2 className="text-[1.4rem] font-medium tracking-tight text-slate-900 lg:text-[1.85rem] dark:text-white">
                     {feature.title}
                   </h2>
-                  <p className="mx-auto mt-3 max-w-[16rem] text-base leading-8 text-slate-500 dark:text-slate-300">
+                  <p className="mx-auto mt-3 max-w-[16rem] text-[0.95rem] leading-7 text-slate-500 dark:text-slate-300">
                     {feature.description}
                   </p>
                 </div>

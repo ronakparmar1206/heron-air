@@ -62,7 +62,7 @@ export function FaqSection() {
     <section className="bg-white px-6 py-24 transition-colors dark:bg-[#08101d]">
       <div className="mx-auto max-w-3xl">
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-3xl font-semibold text-slate-900 md:text-4xl dark:text-white">
+          <h1 className="mb-4 text-[2rem] font-semibold text-slate-900 md:text-4xl dark:text-white">
             Frequently Asked Questions
           </h1>
         </div>
@@ -131,27 +131,27 @@ export function FaqSection() {
           </div>
 
           <div className="mt-8">
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-red-700" />
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
+                <FaPhoneAlt className="shrink-0 text-red-700 dark:text-red-400" />
                 <a
                   href="tel:+919904913616"
-                  className="font-medium text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
+                  className="font-medium break-words text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
                 >
                   +91 9904 913 616
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <FaEnvelope className="text-red-700" />
+              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
+                <FaEnvelope className="shrink-0 text-red-700 dark:text-red-400" />
                 <a
                   href="mailto:heronair21@gmail.com"
-                  className="font-medium text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
+                  className="font-medium break-all text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
                 >
                   heronair21@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <FaClock className="text-red-700" />
+              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
+                <FaClock className="shrink-0 text-red-700 dark:text-red-400" />
                 <span className="font-medium text-slate-900 dark:text-white">
                   Mon - Sat, 9AM - 7PM
                 </span>

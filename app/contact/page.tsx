@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Clock3Icon, DownloadIcon, MailIcon, PhoneCallIcon } from "lucide-react"
+import { Clock3Icon, MailIcon, PhoneCallIcon } from "lucide-react"
 
 import { HomeFooter } from "@/components/home/home-footer"
 import { HomeHeader } from "@/components/home/home-header"
@@ -51,27 +51,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f6f8] transition-colors dark:bg-[#08101d]">
-      <div className="bg-red-700 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-xs font-medium tracking-[0.08em] uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/88">
-            <span>Welcome To Heron Air</span>
-            <span>+91 9904 913 616</span>
-            <span>+91 8128 333 901</span>
-            <span>info@heronair.in</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-5 text-white">
-            <span className="inline-flex items-center gap-2">
-              <DownloadIcon className="size-3.5" />
-              Download Brochure
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <PhoneCallIcon className="size-3.5" />
-              Call Us
-            </span>
-          </div>
-        </div>
-      </div>
-
       <HomeHeader />
 
       <main>
@@ -81,7 +60,7 @@ export default function ContactPage() {
             <div className="inline-flex border border-white/12 bg-white/6 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-white/80 uppercase">
               Contact Heron Air
             </div>
-            <h1 className="mt-5 text-5xl font-semibold tracking-tight sm:text-[4.2rem]">
+            <h1 className="mt-5 text-[2.4rem] font-semibold tracking-tight sm:text-[4.2rem]">
               Contact Us
             </h1>
             <p className="mt-5 text-sm tracking-[0.22em] text-white/62 uppercase">
@@ -94,7 +73,7 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[420px_minmax(0,1fr)] lg:px-8 lg:py-20">
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
                   Our Address
                 </h2>
                 <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />
@@ -103,7 +82,7 @@ export default function ContactPage() {
               <div className="grid gap-5 sm:grid-cols-2">
                 {addresses.map((address) => (
                   <article key={address.title} className="pb-6">
-                    <h3 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                    <h3 className="text-[1.45rem] font-semibold tracking-tight text-slate-950 dark:text-white">
                       {address.title}
                     </h3>
                     <div className="mt-4 space-y-1 text-[1rem] leading-8 text-slate-600 dark:text-slate-300">
@@ -134,7 +113,7 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-8">
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
                   Email Us
                 </h2>
                 <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />
@@ -154,7 +133,7 @@ export default function ContactPage() {
 
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white">
+                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
                   Get Directions
                 </h2>
                 <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />

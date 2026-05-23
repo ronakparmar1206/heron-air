@@ -86,15 +86,15 @@ export function HeroSlider() {
                     <p className="mb-7 text-sm tracking-[0.08em] text-white/72">
                       {slide.eyebrow}
                     </p>
-                    <h1 className="max-w-xl text-[2.65rem] leading-[1.22] font-semibold tracking-tight text-white sm:text-[3.15rem] lg:text-[3.7rem]">
+                    <h1 className="max-w-xl text-[2.05rem] leading-[1.2] font-semibold tracking-tight text-white sm:text-[3.15rem] lg:text-[3.7rem]">
                       {slide.title}
                     </h1>
-                    <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-white/76 sm:text-base">
+                    <p className="mt-5 max-w-md text-[0.92rem] leading-6 text-white/76 sm:text-base sm:leading-7">
                       {slide.description}
                     </p>
                     <Button
                       size="lg"
-                      className="mt-8 h-12 rounded-none border border-white/40 bg-transparent px-8 text-sm font-semibold uppercase tracking-[0.06em] text-white transition hover:bg-white hover:text-slate-900"
+                      className="mt-8 h-12 rounded-none border border-white/40 bg-transparent px-8 text-sm font-semibold tracking-[0.06em] text-white uppercase transition hover:bg-white hover:text-slate-900"
                     >
                       {slide.buttonLabel}
                     </Button>
@@ -109,7 +109,7 @@ export function HeroSlider() {
                       height={700}
                       priority={index === 0}
                       sizes="(max-width: 1024px) 100vw, 48vw"
-                      className="relative z-10 h-auto max-h-[330px] w-full max-w-[840px] object-contain will-change-transform [transform:translateZ(0)] drop-shadow-[0_16px_24px_rgba(0,0,0,0.14)] sm:max-h-[470px] lg:max-h-[540px]"
+                      className="relative z-10 h-auto max-h-[330px] w-full max-w-[840px] [transform:translateZ(0)] object-contain drop-shadow-[0_16px_24px_rgba(0,0,0,0.14)] will-change-transform sm:max-h-[470px] lg:max-h-[540px]"
                     />
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export function HeroSlider() {
           type="button"
           aria-label="Previous slide"
           onClick={() => api?.scrollPrev()}
-          className="absolute top-1/2 left-2 z-20 flex size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:left-4 lg:left-6"
+          className="absolute top-1/2 left-2 z-20 hidden size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:left-4 sm:flex lg:left-6"
         >
           <ChevronLeftIcon className="size-10 stroke-[1.4]" />
         </button>
@@ -131,7 +131,7 @@ export function HeroSlider() {
           type="button"
           aria-label="Next slide"
           onClick={() => api?.scrollNext()}
-          className="absolute top-1/2 right-2 z-20 flex size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:right-4 lg:right-6"
+          className="absolute top-1/2 right-2 z-20 hidden size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:right-4 sm:flex lg:right-6"
         >
           <ChevronRightIcon className="size-10 stroke-[1.4]" />
         </button>

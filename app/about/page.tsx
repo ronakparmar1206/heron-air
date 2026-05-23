@@ -2,10 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import {
   BadgeCheckIcon,
-  DownloadIcon,
   HandHeartIcon,
   HeartHandshakeIcon,
-  PhoneCallIcon,
   ScrollTextIcon,
   SearchCheckIcon,
   ShieldCheckIcon,
@@ -67,27 +65,6 @@ const coreValues = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#f5f6f8] transition-colors dark:bg-[#08101d]">
-      <div className="bg-red-700 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-2 text-xs font-medium tracking-[0.08em] uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/88">
-            <span>Welcome To Heron Air</span>
-            <span>+91 9904 913 616</span>
-            <span>+91 8128 333 901</span>
-            <span>info@heronair.in</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-5 text-white">
-            <span className="inline-flex items-center gap-2">
-              <DownloadIcon className="size-3.5" />
-              Download Brochure
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <PhoneCallIcon className="size-3.5" />
-              Call Us
-            </span>
-          </div>
-        </div>
-      </div>
-
       <HomeHeader />
 
       <main>
@@ -97,7 +74,7 @@ export default function AboutPage() {
               <div className="inline-flex border border-red-200 bg-red-50 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-red-700 uppercase dark:border-red-400/20 dark:bg-red-500/10 dark:text-red-300">
                 Why Us
               </div>
-              <h1 className="mt-5 text-4xl font-semibold tracking-tight text-slate-950 sm:text-[3.3rem] dark:text-white">
+              <h1 className="mt-5 text-[2.15rem] font-semibold tracking-tight text-slate-950 sm:text-[3.3rem] dark:text-white">
                 Why industrial buyers keep choosing Heron Air.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300">
@@ -149,7 +126,7 @@ export default function AboutPage() {
 
           <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-22">
             <div>
-              <h2 className="max-w-xl text-4xl leading-tight font-semibold tracking-tight sm:text-[3.1rem]">
+              <h2 className="max-w-xl text-[2.15rem] leading-tight font-semibold tracking-tight sm:text-[3.1rem]">
                 The strengths below keep reinforcing our{" "}
                 <span className="text-red-500">credibility</span>.
               </h2>
@@ -176,7 +153,7 @@ export default function AboutPage() {
             </div>
 
             <div className="self-center rounded-[1.15rem] border border-white/12 bg-white/6 p-7 shadow-[0_24px_70px_rgba(0,0,0,0.26)] backdrop-blur-sm">
-              <h2 className="text-4xl font-semibold tracking-tight">
+              <h2 className="text-[2.15rem] font-semibold tracking-tight">
                 Client <span className="text-red-500">Satisfaction</span>
               </h2>
               <p className="mt-6 text-[1rem] leading-8 text-white/78">
@@ -201,7 +178,7 @@ export default function AboutPage() {
               <div className="inline-flex border border-slate-200 bg-slate-50 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-slate-700 uppercase dark:border-white/10 dark:bg-white/6 dark:text-slate-200">
                 About Heron Air
               </div>
-              <h2 className="mt-5 text-4xl font-semibold tracking-tight text-slate-950 sm:text-[3.2rem] dark:text-white">
+              <h2 className="mt-5 text-[2.15rem] font-semibold tracking-tight text-slate-950 sm:text-[3.2rem] dark:text-white">
                 Total compressed air solutions provider.
               </h2>
               <p className="mt-5 text-lg text-slate-500 dark:text-slate-300">
@@ -256,7 +233,7 @@ export default function AboutPage() {
 
           <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
             <div>
-              <h2 className="text-4xl font-semibold tracking-tight sm:text-[3rem]">
+              <h2 className="text-[2.15rem] font-semibold tracking-tight sm:text-[3rem]">
                 Our <span className="text-red-500">Core Values</span>
               </h2>
               <div className="mt-8 space-y-4">
@@ -272,7 +249,7 @@ export default function AboutPage() {
             </div>
 
             <div className="self-center">
-              <h2 className="text-4xl font-semibold tracking-tight sm:text-[3rem]">
+              <h2 className="text-[2.15rem] font-semibold tracking-tight sm:text-[3rem]">
                 Our <span className="text-red-500">Infrastructure</span>
               </h2>
               <p className="mt-7 text-[1rem] leading-8 text-white/76">

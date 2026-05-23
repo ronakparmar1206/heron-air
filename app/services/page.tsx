@@ -113,7 +113,7 @@ export default function ServicesPage() {
                   <ShieldCheckIcon className="size-4 text-red-400" />
                   Heron Air Services
                 </div>
-                <h1 className="mt-6 text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-[4.1rem]">
+                <h1 className="mt-6 text-[2.15rem] leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-[4.1rem]">
                   Industrial service support built for uptime, speed, and plant
                   confidence.
                 </h1>
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                 <p className="text-sm font-semibold tracking-[0.04em] text-lime-400 sm:text-[1.05rem]">
                   with our highly experienced professionals
                 </p>
-                <h2 className="mt-8 text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-[4rem]">
+                <h2 className="mt-8 text-[2.15rem] leading-tight font-semibold tracking-tight text-balance sm:text-5xl lg:text-[4rem]">
                   We work through every aspect in projects with disciplined
                   industrial support.
                 </h2>
@@ -287,7 +287,7 @@ export default function ServicesPage() {
               <div className="inline-flex border border-red-200 bg-white px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-red-700 uppercase shadow-[0_8px_20px_rgba(220,38,38,0.06)] dark:border-red-400/20 dark:bg-white/6 dark:text-red-300">
                 What We Handle
               </div>
-              <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.7rem] dark:text-white">
+              <h2 className="mt-5 text-[2rem] leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.7rem] dark:text-white">
                 Clear service coverage across support, execution, and parts
                 supply.
               </h2>
@@ -320,7 +320,7 @@ export default function ServicesPage() {
               <div className="inline-flex border border-slate-200 bg-slate-50 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-slate-700 uppercase dark:border-white/10 dark:bg-white/6 dark:text-slate-200">
                 Execution Flow
               </div>
-              <h2 className="mt-5 text-3xl leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.65rem] dark:text-white">
+              <h2 className="mt-5 text-[2rem] leading-tight font-semibold tracking-tight text-slate-950 sm:text-[2.65rem] dark:text-white">
                 A service process that feels controlled from first call to final
                 support.
               </h2>
@@ -355,7 +355,7 @@ export default function ServicesPage() {
                   <Building2Icon className="size-4 text-red-400" />
                   Industries We Serve
                 </div>
-                <h2 className="mt-5 max-w-2xl text-3xl leading-tight font-semibold tracking-tight sm:text-[2.7rem]">
+                <h2 className="mt-5 max-w-2xl text-[2rem] leading-tight font-semibold tracking-tight sm:text-[2.7rem]">
                   Support shaped for demanding industrial environments.
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/70">

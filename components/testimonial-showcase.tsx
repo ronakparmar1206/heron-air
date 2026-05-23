@@ -1,5 +1,4 @@
 "use client"
-"use client"
 
 import * as React from "react"
 import Image from "next/image"
@@ -124,10 +123,11 @@ export function TestimonialShowcase() {
                 <div className="relative flex min-h-[360px] items-end justify-center px-4 py-12 sm:px-8 lg:min-h-[430px] lg:px-12">
                   <div className="mx-auto max-w-4xl text-center text-white">
                     <blockquote className="mx-auto max-w-4xl">
-                      <span className="mb-5 block text-6xl leading-none text-white/24">
-                        &ldquo;
-                      </span>
-                      <p className="text-base leading-8 text-balance text-white/92 sm:text-[1.12rem] sm:leading-9 lg:text-[1.28rem] lg:leading-10">
+                      <div className="mb-6 flex items-center justify-between text-5xl leading-none text-white/22 sm:text-6xl">
+                        <span aria-hidden="true">&ldquo;</span>
+                        <span aria-hidden="true">&rdquo;</span>
+                      </div>
+                      <p className="text-base leading-8 text-balance text-white/92 italic sm:text-[1.12rem] sm:leading-9 lg:text-[1.28rem] lg:leading-10">
                         {testimonial.quote}
                       </p>
                     </blockquote>
