@@ -164,6 +164,15 @@
   }
 }
 
+@keyframes showroom-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @layer utilities {
   .industrial-grid {
     background-image:
@@ -191,5 +200,18 @@
     width: max-content;
     will-change: transform;
     animation: marquee-left 18s linear infinite;
+  }
+
+  .showroom-marquee {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: showroom-marquee 26s linear infinite;
+  }
+
+  .showroom-marquee-group {
+    display: flex;
+    flex-shrink: 0;
   }
 }

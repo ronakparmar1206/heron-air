@@ -3,25 +3,79 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { DownloadIcon, MenuIcon, PhoneCallIcon, XIcon } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
+import {
+  ChevronDownIcon,
+  DownloadIcon,
+  MenuIcon,
+  PhoneCallIcon,
+  XIcon,
+} from "lucide-react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function HomeHeader() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [productsOpen, setProductsOpen] = React.useState(false)
+  const productsCloseTimer = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  )
 
-  const navItems = [
+  const navItemsBeforeProducts = [
     { label: "Home", href: "/", active: pathname === "/" },
     { label: "About", href: "/about", active: pathname === "/about" },
-    { label: "Products", href: "/#products", active: false },
+  ] as const
+  const navItemsAfterProducts = [
     { label: "Services", href: "/services", active: pathname === "/services" },
     { label: "Contact", href: "/contact", active: pathname === "/contact" },
   ] as const
+  const mobileNavItems = [
+    ...navItemsBeforeProducts,
+    { label: "Products", href: "/#products", active: false },
+    ...navItemsAfterProducts,
+  ] as const
+  const productItems = [
+    "Single Stage Medium Pressure Air Compressor",
+    "Double Stage Low Pressure Air Compressor",
+    "High Pressure Booster Air Compressor",
+    "Vertical and Horizontal Air Receiver Tank",
+    "Schematic Layout",
+    "Inline Air Filter",
+    "Multi Stage High Pressure Air Compressor",
+    "Oil Free Low and High Pressure Air Compressor",
+    "Screw Air Compressor",
+    "Single and Double Stage Low Pressure Vacuum Pump",
+    "Low and High Pressure Air Dryer",
+    "Spare Parts",
+  ] as const
+
+  const openProductsMenu = React.useCallback(() => {
+    if (productsCloseTimer.current) {
+      clearTimeout(productsCloseTimer.current)
+      productsCloseTimer.current = null
+    }
+    setProductsOpen(true)
+  }, [])
+
+  const closeProductsMenu = React.useCallback(() => {
+    productsCloseTimer.current = setTimeout(() => {
+      setProductsOpen(false)
+    }, 120)
+  }, [])
 
   React.useEffect(() => {
     setMobileMenuOpen(false)
+    setProductsOpen(false)
   }, [pathname])
+
+  React.useEffect(() => {
+    return () => {
+      if (productsCloseTimer.current) {
+        clearTimeout(productsCloseTimer.current)
+      }
+    }
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-colors dark:border-white/10 dark:bg-[#0f1727] dark:shadow-[0_10px_30px_rgba(2,6,23,0.35)]">
@@ -66,7 +120,66 @@ export function HomeHeader() {
         </div>
 
         <nav className="hidden items-center gap-8 text-[0.95rem] font-medium text-slate-700 lg:flex dark:text-slate-200">
-          {navItems.map((item) => (
+          {navItemsBeforeProducts.map((item) => (
+            <Link
+              key={item.label}
+              className={
+                item.active
+                  ? "text-red-600 transition hover:text-red-700"
+                  : "transition hover:text-red-700"
+              }
+              href={item.href}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <div
+            className="relative"
+            onMouseEnter={openProductsMenu}
+            onMouseLeave={closeProductsMenu}
+          >
+            <button
+              type="button"
+              aria-expanded={productsOpen}
+              className="inline-flex items-center gap-1.5 text-slate-700 transition hover:text-red-700 dark:text-slate-200 dark:hover:text-red-300"
+            >
+              Products
+              <ChevronDownIcon
+                className={`size-4 transition-transform duration-200 ${
+                  productsOpen ? "rotate-180" : "rotate-0"
+                }`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {productsOpen ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.16, ease: "easeOut" }}
+                  className="absolute top-full left-1/2 z-50 mt-5 w-[min(86vw,980px)] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_18px_34px_rgba(15,23,42,0.14)]"
+                >
+                  <div className="grid grid-cols-2 gap-2">
+                    {productItems.map((product) => (
+                      <div key={product}>
+                        <Link
+                          href="/#products"
+                          className="group flex items-center rounded-xl px-3 py-2.5 text-[1.02rem] leading-snug text-slate-600 transition-all duration-150 hover:bg-slate-50 hover:pl-4 hover:text-red-700"
+                        >
+                          <span className="mr-2.5 h-1.5 w-1.5 rounded-full bg-slate-300 transition group-hover:bg-red-500" />
+                          {product}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </div>
+
+          {navItemsAfterProducts.map((item) => (
             <Link
               key={item.label}
               className={
@@ -110,7 +223,7 @@ export function HomeHeader() {
       {mobileMenuOpen ? (
         <div className="border-t border-slate-200 bg-white px-4 py-4 shadow-[0_16px_35px_rgba(15,23,42,0.08)] transition-colors lg:hidden dark:border-white/10 dark:bg-[#0f1727]">
           <div className="space-y-2">
-            {navItems.map((item) => (
+            {mobileNavItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
