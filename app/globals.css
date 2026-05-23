@@ -139,3 +139,57 @@
     @apply font-sans;
   }
 }
+
+@keyframes smoke-shift {
+  0% {
+    transform: translateX(-2%) translateY(0%);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateX(2%) translateY(-1.5%);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(-2%) translateY(0%);
+    opacity: 0.22;
+  }
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@layer utilities {
+  .industrial-grid {
+    background-image:
+      linear-gradient(rgb(15 23 42 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(15 23 42 / 0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .industrial-grid-lg {
+    background-image:
+      linear-gradient(rgb(15 23 42 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(15 23 42 / 0.08) 1px, transparent 1px);
+    background-size: 112px 112px;
+  }
+
+  .hero-smoke {
+    background:
+      radial-gradient(circle at 20% 30%, rgb(148 163 184 / 0.14), transparent 30%),
+      radial-gradient(circle at 70% 65%, rgb(148 163 184 / 0.16), transparent 35%),
+      radial-gradient(circle at 40% 80%, rgb(71 85 105 / 0.22), transparent 40%);
+    animation: smoke-shift 10s ease-in-out infinite;
+  }
+
+  .marquee {
+    width: max-content;
+    will-change: transform;
+    animation: marquee-left 18s linear infinite;
+  }
+}
