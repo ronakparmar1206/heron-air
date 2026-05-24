@@ -6,6 +6,7 @@ import {
   GlobeIcon,
   CircleUserRoundIcon,
 } from "lucide-react"
+import Image from "next/image"
 
 export function HomeFooter() {
   return (
@@ -13,18 +14,13 @@ export function HomeFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.15fr_1fr_1.1fr_0.9fr] lg:px-8">
         <div>
           <div className="mb-8 flex items-center gap-3">
-            <div className="relative flex h-14 w-14 items-center justify-center">
-              <div className="absolute left-2 h-10 w-2 -skew-x-[28deg] bg-slate-900 dark:bg-white" />
-              <div className="absolute left-6 h-10 w-2 -skew-x-[28deg] bg-slate-900 dark:bg-white" />
-              <div className="absolute top-2 left-3 h-2 w-8 -skew-x-[28deg] bg-slate-900 dark:bg-white" />
-            </div>
-            <div className="leading-none">
-              <p className="font-serif text-[2rem] font-bold tracking-tight text-slate-950 dark:text-white">
-                HERON AIR
-              </p>
-              <p className="inline-block border-t-4 border-b-4 border-slate-400/70 px-1 pt-0.5 pb-1 text-[1.05rem] font-bold tracking-wide text-slate-700 dark:border-white/40 dark:text-white/90">
-                COMPRESSORS
-              </p>
+            <div className="relative h-14 w-[210px]">
+              <Image
+                src="/products/logo.png"
+                alt="Heron Air logo"
+                fill
+                className="object-contain object-left"
+              />
             </div>
           </div>
 

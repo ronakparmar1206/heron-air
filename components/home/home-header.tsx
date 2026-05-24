@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { AnimatePresence, motion } from "framer-motion"
 import {
@@ -36,18 +37,12 @@ export function HomeHeader() {
     ...navItemsAfterProducts,
   ] as const
   const productItems = [
-    "Single Stage Medium Pressure Air Compressor",
-    "Double Stage Low Pressure Air Compressor",
-    "High Pressure Booster Air Compressor",
-    "Vertical and Horizontal Air Receiver Tank",
-    "Schematic Layout",
-    "Inline Air Filter",
-    "Multi Stage High Pressure Air Compressor",
-    "Oil Free Low and High Pressure Air Compressor",
-    "Screw Air Compressor",
-    "Single and Double Stage Low Pressure Vacuum Pump",
-    "Low and High Pressure Air Dryer",
-    "Spare Parts",
+    "High Pressure Compressor",
+    "Vacuum Pump",
+    "Booster Compressor",
+    "High Pressure Booster Compressor",
+    "Low Pressure Compressor",
+    "Compressor Refrigerator Unit",
   ] as const
 
   const openProductsMenu = React.useCallback(() => {
@@ -80,7 +75,7 @@ export function HomeHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-colors dark:border-white/10 dark:bg-[#0f1727] dark:shadow-[0_10px_30px_rgba(2,6,23,0.35)]">
       <div className="bg-red-700 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 text-[0.68rem] font-medium tracking-[0.08em] uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-1.5 text-[0.65rem] font-medium tracking-[0.08em] uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/88 sm:gap-x-5">
             <span>Welcome To Heron Air</span>
             <span>+91 9904 913 616</span>
@@ -100,21 +95,17 @@ export function HomeHeader() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8 lg:py-2.5">
         <div className="flex min-w-0 items-center gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <div className="relative flex h-11 w-11 shrink-0 items-center justify-center sm:h-14 sm:w-14">
-              <div className="absolute left-1.5 h-8 w-2 -skew-x-[28deg] bg-slate-800 sm:left-2 sm:h-10 dark:bg-slate-100" />
-              <div className="absolute left-5 h-8 w-2 -skew-x-[28deg] bg-slate-800 sm:left-6 sm:h-10 dark:bg-slate-100" />
-              <div className="absolute top-2 left-2 h-2 w-6 -skew-x-[28deg] bg-slate-800 sm:left-3 sm:w-8 dark:bg-slate-100" />
-            </div>
-            <div className="min-w-0 leading-none">
-              <p className="truncate font-serif text-[1.45rem] font-bold tracking-tight text-red-700 sm:text-[2.1rem]">
-                HERON AIR
-              </p>
-              <p className="inline-block border-t-[3px] border-b-[3px] border-slate-400 px-1 pt-0.5 pb-1 text-[0.82rem] font-bold tracking-wide text-slate-700 sm:border-t-4 sm:border-b-4 sm:text-[1.15rem] dark:border-slate-500 dark:text-slate-200">
-                COMPRESSORS
-              </p>
+            <div className="relative h-10 w-[148px] sm:h-11 sm:w-[170px]">
+              <Image
+                src="/products/logo.png"
+                alt="Heron Air logo"
+                fill
+                priority
+                className="object-contain object-left"
+              />
             </div>
           </Link>
         </div>

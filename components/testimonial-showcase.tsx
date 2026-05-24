@@ -79,17 +79,6 @@ export function TestimonialShowcase() {
       id="services"
       className="relative overflow-hidden bg-white pt-6 pb-16 transition-colors lg:pt-10 lg:pb-20 dark:bg-[#08101d]"
     >
-      <div className="mx-auto max-w-[76rem] px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center">
-          <button
-            type="button"
-            className="h-12 rounded-md bg-red-700 px-8 text-sm font-semibold tracking-[0.08em] text-white uppercase transition hover:bg-red-800"
-          >
-            View All Products
-          </button>
-        </div>
-      </div>
-
       <div className="relative mt-10">
         <Carousel
           setApi={setApi}

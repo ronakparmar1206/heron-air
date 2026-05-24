@@ -2,7 +2,6 @@
 import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
-import CounterGrid from "./counter-grid"
 
 const pillars = [
   {
@@ -101,8 +100,6 @@ export function AboutSection() {
               </Button>
             </div>
 
-            {/* animated counters start when visible */}
-            <CounterGrid />
           </div>
         </div>
 

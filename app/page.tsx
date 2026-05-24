@@ -4,12 +4,15 @@ import { AboutSection } from "@/components/home/about-section"
 import { FeatureStrip } from "@/components/home/feature-strip"
 import { HomeFooter } from "@/components/home/home-footer"
 import { HomeHeader } from "@/components/home/home-header"
+import { IndustriesSection } from "@/components/home/industries-section"
+import { ProductShowcase } from "@/components/home/product-showcase"
 import { TestimonialShowcase } from "@/components/testimonial-showcase"
 import { FaqSection } from "@/components/home/faq-section"
 
 const showroomBrands = [
   { name: "Hyundai", logo: "/heron/hyundai.png" },
   { name: "Ford", logo: "/heron/ford.png" },
+  { name: "Tata", logo: "/heron/tata.png" },
 ] as const
 
 export default function Page() {
@@ -21,13 +24,15 @@ export default function Page() {
         <HeroSlider />
         <FeatureStrip />
         <AboutSection />
-        <section className="bg-white py-14 transition-colors dark:bg-[#0a1322] sm:py-16">
+        <ProductShowcase />
+        <IndustriesSection />
+        <section className="bg-white py-14 transition-colors sm:py-16 dark:bg-[#0a1322]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <p className="text-xs font-semibold tracking-[0.22em] text-red-700 uppercase dark:text-red-300">
                 Trusted Across India
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl">
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl dark:text-white">
                 Largest provider of air compressors for automobile showrooms
               </h2>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
@@ -60,7 +65,7 @@ export default function Page() {
                             className="h-12 w-auto object-contain"
                           />
                         </div>
-                      )),
+                      ))
                     )}
                   </div>
                 ))}

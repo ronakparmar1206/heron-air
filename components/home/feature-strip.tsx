@@ -32,7 +32,7 @@ export function FeatureStrip() {
   return (
     <section
       id="about"
-      className="relative z-20 -mt-14 bg-white px-4 pb-10 transition-colors sm:px-6 md:-mt-22 md:pb-14 lg:px-8 dark:bg-[#08101d]"
+      className="relative z-20 bg-white px-4 py-10 transition-colors sm:px-6 md:py-14 lg:px-8 dark:bg-[#08101d]"
     >
       <div className="mx-auto max-w-[72rem]">
         <div className="overflow-hidden rounded-none border border-slate-200/90 bg-white shadow-[0_26px_70px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-[#0f1727] dark:shadow-[0_26px_70px_rgba(2,6,23,0.36)]">
