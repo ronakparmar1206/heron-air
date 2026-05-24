@@ -1,156 +1,198 @@
-"use client"
-
-import * as React from "react"
 import Image from "next/image"
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel"
+  ArrowRightIcon,
+  CheckIcon,
+  GaugeIcon,
+  MonitorIcon,
+  TimerResetIcon,
+  WindIcon,
+} from "lucide-react"
 
-const slides = [
-  {
-    eyebrow: "HERON AIR",
-    title: "High Pressure Booster Air Compressor",
-    description:
-      "Reliable industrial compressor systems designed for stable output, fast air delivery, and long service life.",
-    image: "/heron/heron-air-compressors-manufacturer-slider.png",
-    imageAlt: "High pressure booster air compressor by Heron Air",
-    buttonLabel: "Read More",
-    background: "from-[#7a1320] via-[#b11f31] to-[#d73a49]",
-  },
-  {
-    eyebrow: "MULTI STAGE",
-    title: "High Pressure Air Compressor",
-    description:
-      "Aesthetically and ergonomically built machine for best performance with dependable industrial output and operator-friendly use.",
-    image: "/heron/heron-air-compressors-manufacturer.png",
-    imageAlt: "High pressure air compressor by Heron Air",
-    buttonLabel: "Read More",
-    background: "from-[#174f85] via-[#20669d] to-[#3390cd]",
-  },
+const hero = {
+  eyebrow: "Heron Air - Since 2002",
+  titleLead: "High Pressure Air",
+  highlight: "Compressor",
+  // outline: "Booster",
+  description:
+    "Reliable industrial compressor systems designed for stable output, fast air delivery, and long service life.",
+  image: "/heron/heron-air-compressors-manufacturer-slider.png",
+  imageAlt: "High pressure booster air compressor by Heron Air",
+  hud: [
+    { label: "Output Pressure", value: "High", unit: "PSI", width: "88%" },
+    { label: "Air Delivery", value: "Fast", unit: "CFM", width: "72%" },
+    { label: "Duty Cycle", value: "Stable", unit: "24/7", width: "82%" },
+  ],
+} as const
+
+const trustBadges = ["Best Quality", "On Time Delivery", "Professional Team"]
+
+const stats = [
+  { value: "2002", suffix: "", label: "Established" },
+  { value: "2148", suffix: "+", label: "Clients Served" },
+  { value: "24/7", suffix: "", label: "Support Mindset" },
 ] as const
 
 export function HeroSlider() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-
-  React.useEffect(() => {
-    if (!api) return
-
-    const syncCurrentSlide = () => {
-      setCurrent(api.selectedScrollSnap())
-    }
-
-    api.on("select", syncCurrentSlide)
-    api.on("reInit", syncCurrentSlide)
-
-    return () => {
-      api.off("select", syncCurrentSlide)
-      api.off("reInit", syncCurrentSlide)
-    }
-  }, [api])
-
-  React.useEffect(() => {
-    if (!api) return
-
-    const interval = window.setInterval(() => {
-      api.scrollNext()
-    }, 5000)
-
-    return () => window.clearInterval(interval)
-  }, [api])
-
   return (
-    <section className="px-0 pb-0 sm:px-0 sm:pb-0 lg:px-0 lg:pb-0">
-      <Carousel
-        setApi={setApi}
-        opts={{ loop: true, align: "start" }}
-        className="overflow-hidden border-b border-slate-200/60 bg-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.1)]"
-      >
-        <CarouselContent className="-ml-0 touch-pan-y will-change-transform">
-          {slides.map((slide, index) => (
-            <CarouselItem key={slide.title} className="pl-0">
+    <section className="hero-gradient-bg relative overflow-hidden border-b border-slate-200/80 bg-[#fbfaf7] text-slate-950 shadow-[0_18px_40px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[#08101d] dark:text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_74%_36%,rgba(220,38,38,0.13),transparent_42%),radial-gradient(ellipse_at_18%_82%,rgba(14,165,233,0.1),transparent_36%)] dark:bg-[radial-gradient(ellipse_at_74%_36%,rgba(248,113,113,0.12),transparent_42%),radial-gradient(ellipse_at_18%_82%,rgba(56,189,248,0.12),transparent_36%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-white/70 to-transparent dark:from-[#08101d]" />
+
+      <div className="relative mx-auto grid min-h-[650px] max-w-7xl items-center gap-10 px-4 py-12 sm:min-h-[720px] sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.88fr)_minmax(520px,1.12fr)] lg:px-8">
+        <div className="max-w-[34rem]">
+          <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-red-200 bg-red-50/75 px-3 py-2 text-[0.68rem] font-semibold tracking-[0.18em] text-red-700 uppercase shadow-[0_10px_28px_rgba(220,38,38,0.06)] dark:border-red-400/25 dark:bg-red-500/10 dark:text-red-200">
+            <span className="size-1.5 rounded-full bg-red-600" />
+            <span className="truncate">{hero.eyebrow}</span>
+          </div>
+
+          <h1 className="mt-7 text-[2.35rem] leading-[1] font-black text-slate-950 uppercase sm:text-[3.75rem] lg:text-[4.45rem] dark:text-white">
+            {hero.titleLead}
+            <br />
+            <span className="text-red-600">{hero.highlight}</span>
+            {/* <br />
+            <span className="text-transparent [-webkit-text-stroke:1.5px_rgb(15_23_42)] dark:[-webkit-text-stroke:1.5px_rgb(255_255_255)]">
+              {hero.outline}
+            </span> */}
+          </h1>
+
+          <p className="mt-6 max-w-[30rem] text-[0.98rem] leading-7 text-slate-600 dark:text-slate-300">
+            {hero.description}
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-2">
+            {trustBadges.map((badge) => (
               <div
-                className={`relative min-h-[520px] overflow-hidden bg-gradient-to-r ${slide.background} text-white sm:min-h-[620px] lg:min-h-[700px]`}
+                key={badge}
+                className="inline-flex items-center gap-2 rounded-md border border-white/80 bg-white/78 px-3 py-2 text-[0.72rem] font-semibold text-slate-700 shadow-[0_8px_22px_rgba(15,23,42,0.08)] backdrop-blur-md dark:border-white/10 dark:bg-white/8 dark:text-slate-200"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.16),transparent_36%),linear-gradient(130deg,rgba(255,255,255,0.05),transparent_48%)]" />
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/12 to-transparent" />
+                <CheckIcon className="size-3.5 text-red-600" />
+                {badge}
+              </div>
+            ))}
+          </div>
 
-                <div className="relative mx-auto grid min-h-[520px] max-w-7xl items-center gap-6 px-8 py-14 sm:min-h-[620px] sm:px-12 lg:grid-cols-[minmax(360px,0.86fr)_minmax(540px,1.14fr)] lg:px-20 lg:py-24">
-                  <div className="max-w-[30rem] lg:pl-8">
-                    <p className="mb-7 text-sm tracking-[0.08em] text-white/72">
-                      {slide.eyebrow}
-                    </p>
-                    <h1 className="max-w-xl text-[2.05rem] leading-[1.2] font-semibold tracking-tight text-white sm:text-[3.15rem] lg:text-[3.7rem]">
-                      {slide.title}
-                    </h1>
-                    <p className="mt-5 max-w-md text-[0.92rem] leading-6 text-white/76 sm:text-base sm:leading-7">
-                      {slide.description}
-                    </p>
-                    <Button
-                      size="lg"
-                      className="mt-8 h-12 rounded-none border border-white/40 bg-transparent px-8 text-sm font-semibold tracking-[0.06em] text-white uppercase transition hover:bg-white hover:text-slate-900"
-                    >
-                      {slide.buttonLabel}
-                    </Button>
-                  </div>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-red-600 px-6 text-sm font-bold tracking-[0.08em] text-white uppercase shadow-[0_12px_28px_rgba(220,38,38,0.25)] transition hover:-translate-y-0.5 hover:bg-red-700 hover:shadow-[0_16px_34px_rgba(220,38,38,0.32)]"
+            >
+              Request Quote
+              <ArrowRightIcon className="size-4" />
+            </Link>
+            <Link
+              href="/#products"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-slate-300 bg-white/45 px-6 text-sm font-bold tracking-[0.08em] text-slate-800 uppercase transition hover:-translate-y-0.5 hover:border-slate-700 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/40"
+            >
+              <MonitorIcon className="size-4" />
+              Explore Products
+            </Link>
+          </div>
 
-                  <div className="relative flex items-center justify-center lg:justify-end">
-                    <div className="absolute inset-x-[16%] bottom-[14%] h-20 rounded-full bg-white/6 blur-3xl sm:h-24" />
-                    <Image
-                      src={slide.image}
-                      alt={slide.imageAlt}
-                      width={900}
-                      height={700}
-                      priority={index === 0}
-                      sizes="(max-width: 1024px) 100vw, 48vw"
-                      className="relative z-10 h-auto max-h-[330px] w-full max-w-[840px] [transform:translateZ(0)] object-contain drop-shadow-[0_16px_24px_rgba(0,0,0,0.14)] will-change-transform sm:max-h-[470px] lg:max-h-[540px]"
-                    />
-                  </div>
+          <div className="mt-7 grid max-w-[34rem] grid-cols-3 gap-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-lg border border-white/80 bg-white/78 p-3 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-md dark:border-white/10 dark:bg-white/8"
+              >
+                <div className="text-[1.45rem] leading-none font-black text-slate-950 sm:text-[1.65rem] dark:text-white">
+                  {stat.value}
+                  <span className="text-red-600">{stat.suffix}</span>
+                </div>
+                <div className="mt-2 text-[0.62rem] font-bold tracking-[0.12em] text-slate-500 uppercase dark:text-slate-300">
+                  {stat.label}
                 </div>
               </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        <button
-          type="button"
-          aria-label="Previous slide"
-          onClick={() => api?.scrollPrev()}
-          className="absolute top-1/2 left-2 z-20 hidden size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:left-4 sm:flex lg:left-6"
-        >
-          <ChevronLeftIcon className="size-10 stroke-[1.4]" />
-        </button>
-
-        <button
-          type="button"
-          aria-label="Next slide"
-          onClick={() => api?.scrollNext()}
-          className="absolute top-1/2 right-2 z-20 hidden size-12 -translate-y-1/2 items-center justify-center text-white/90 transition hover:text-white sm:right-4 sm:flex lg:right-6"
-        >
-          <ChevronRightIcon className="size-10 stroke-[1.4]" />
-        </button>
-
-        <div className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-3 sm:bottom-8">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.title}
-              type="button"
-              aria-label={`Go to slide ${index + 1}`}
-              aria-pressed={current === index}
-              onClick={() => api?.scrollTo(index)}
-              className={`h-1.5 rounded-full transition-all ${
-                current === index ? "w-16 bg-white" : "w-8 bg-white/35"
-              }`}
-            />
-          ))}
+            ))}
+          </div>
         </div>
-      </Carousel>
+
+        <div className="relative flex min-h-[400px] items-center justify-center sm:min-h-[500px] lg:min-h-[560px]">
+          <div className="hero-ring hero-ring-outer" />
+          <div className="hero-ring hero-ring-main" />
+          <div className="hero-ring hero-ring-dashed" />
+
+          <svg
+            className="absolute inset-0 z-0 size-full"
+            viewBox="0 0 580 520"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              className="hero-flow hero-flow-one"
+              d="M78 248 Q158 188 250 226 Q344 264 426 202"
+            />
+            <path
+              className="hero-flow hero-flow-two"
+              d="M94 300 Q184 336 282 300 Q372 268 462 308"
+            />
+            <path
+              className="hero-flow hero-flow-three"
+              d="M118 208 Q210 154 318 180 Q392 198 468 158"
+            />
+            <path
+              d="M36 42H72M36 42V78M544 42H508M544 42V78M36 478H72M36 478V442M544 478H508M544 478V442"
+              stroke="rgb(220 38 38 / 0.25)"
+              strokeWidth="1.2"
+            />
+            <circle cx="290" cy="260" r="12" stroke="rgb(220 38 38 / 0.18)" />
+            <circle cx="290" cy="260" r="4" stroke="rgb(220 38 38 / 0.35)" />
+          </svg>
+
+          <div className="hero-platform absolute bottom-[12%] left-1/2 z-0 h-8 w-[70%] -translate-x-1/2 rounded-full bg-red-500/16 blur-xl" />
+
+          <div className="hero-product-float relative z-10 w-full max-w-[620px]">
+            <Image
+              src={hero.image}
+              alt={hero.imageAlt}
+              width={900}
+              height={700}
+              priority
+              sizes="(max-width: 1024px) 100vw, 48vw"
+              className="h-auto max-h-[330px] w-full object-contain drop-shadow-[0_28px_44px_rgba(15,23,42,0.2)] sm:max-h-[470px] lg:max-h-[540px]"
+            />
+          </div>
+
+          {hero.hud.map((hud, hudIndex) => {
+            const Icon =
+              hudIndex === 0
+                ? GaugeIcon
+                : hudIndex === 1
+                  ? WindIcon
+                  : TimerResetIcon
+            const position =
+              hudIndex === 0
+                ? "top-[8%] right-[10%]"
+                : hudIndex === 1
+                  ? "right-[8%] bottom-[28%]"
+                  : "left-[10%] bottom-[18%]"
+
+            return (
+              <div
+                key={hud.label}
+                className={`absolute z-20 hidden min-w-[9rem] rounded-lg border border-white/95 bg-white/82 p-3 shadow-[0_14px_35px_rgba(15,23,42,0.13)] backdrop-blur-xl lg:block dark:border-white/10 dark:bg-[#111b2c]/82 ${position}`}
+              >
+                <div className="flex items-center gap-2 text-[0.58rem] font-bold tracking-[0.14em] text-slate-400 uppercase dark:text-slate-300">
+                  <Icon className="size-3 text-red-600" />
+                  {hud.label}
+                </div>
+                <div className="mt-2 text-xl leading-none font-black text-slate-950 dark:text-white">
+                  {hud.value}
+                  <small className="ml-1 text-[0.64rem] font-semibold text-slate-400 dark:text-slate-300">
+                    {hud.unit}
+                  </small>
+                </div>
+                <div className="mt-3 h-1 overflow-hidden rounded-full bg-slate-200 dark:bg-white/12">
+                  <div
+                    className="hero-hud-bar h-full rounded-full bg-linear-to-r from-red-600 to-sky-500"
+                    style={{ width: hud.width }}
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </section>
   )
 }
