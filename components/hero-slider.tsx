@@ -11,11 +11,11 @@ import {
 
 const hero = {
   eyebrow: "Heron Air - Since 2002",
-  titleLead: "High Pressure Air",
-  highlight: "Compressor",
+  titleLead: "Global Top-Selling",
+  highlight: "High Pressure Compressor",
   // outline: "Booster",
   description:
-    "Reliable industrial compressor systems designed for stable output, fast air delivery, and long service life.",
+    "Proven across global industries for stable pressure output, faster air delivery, and long service life.",
   image: "/heron/heron-air-compressors-manufacturer-slider.png",
   imageAlt: "High pressure booster air compressor by Heron Air",
   hud: [

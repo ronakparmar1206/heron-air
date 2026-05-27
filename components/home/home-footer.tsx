@@ -2,16 +2,15 @@ import {
   MailIcon,
   MapPinIcon,
   PhoneCallIcon,
-  SendIcon,
-  GlobeIcon,
-  CircleUserRoundIcon,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { FaInstagram, FaWhatsapp } from "react-icons/fa"
 
 export function HomeFooter() {
   return (
     <footer className="bg-[#eef2f6] text-slate-900 transition-colors dark:bg-[#060c17] dark:text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.15fr_1fr_1.1fr_0.9fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
         <div>
           <div className="mb-8 flex items-center gap-3">
             <div className="relative h-14 w-[210px]">
@@ -44,24 +43,20 @@ export function HomeFooter() {
         </div>
 
         <FooterColumn
-          title="Categories"
-          items={[
-            "High pressure compressor",
-            "Medium pressure compressor",
-            "Low pressure compressor",
-            "Vacuum Pump",
-            "Accessories",
-          ]}
-        />
-
-        <FooterColumn
           title="Our Products"
           items={[
-            "Single Stage Medium Pressure Air Compressor",
-            "Double Stage Low Pressure Air Compressor",
-            "Multi Stage High Pressure Air Compressor",
-            "Screw air Compressor",
-            "View All Products",
+            {
+              label: "High Pressure Compressor",
+              href: "/products/high-pressure-compressor",
+            },
+            { label: "Vacuum Pump", href: "/products/vacuum-pump" },
+            { label: "Booster Compressor", href: "/products/booster-compressor" },
+            {
+              label: "High Pressure Booster Compressor",
+              href: "/products/high-pressure-booster-compressor",
+            },
+            { label: "Oil Free Compressor", href: "/products/oil-free-compressor" },
+            { label: "View All Products", href: "/#products" },
           ]}
         />
 
@@ -69,24 +64,34 @@ export function HomeFooter() {
           <FooterColumn
             title="Useful Links"
             items={[
-              "About us",
-              "Our Infrastructure",
-              "Services",
-              "Industries We Serve",
-              "Support",
-              "Contact Us",
+              { label: "About us", href: "/about" },
+              { label: "Our Infrastructure", href: "/about" },
+              { label: "Services", href: "/services" },
+              { label: "Industries We Serve", href: "/services" },
+              { label: "Support", href: "/contact" },
+              { label: "Contact Us", href: "/contact" },
             ]}
           />
 
           <div className="mt-8 flex gap-3">
-            {[GlobeIcon, CircleUserRoundIcon, SendIcon].map((Icon, index) => (
-              <span
-                key={index}
-                className="flex size-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 dark:border-white/20 dark:bg-white/5 dark:text-white/80"
-              >
-                <Icon className="size-4.5" />
-              </span>
-            ))}
+            <Link
+              href="https://www.instagram.com/heronair_in?utm_source=qr&igsh=ZGs1Zm5pbDVrM2Q0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex size-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:border-pink-300 hover:text-pink-600 dark:border-white/20 dark:bg-white/5 dark:text-white/80 dark:hover:border-pink-300/50 dark:hover:text-pink-300"
+            >
+              <FaInstagram className="size-4.5" />
+            </Link>
+            <Link
+              href="https://wa.me/918128333901"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="flex size-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 dark:border-white/20 dark:bg-white/5 dark:text-white/80 dark:hover:border-emerald-300/50 dark:hover:text-emerald-300"
+            >
+              <FaWhatsapp className="size-4.5" />
+            </Link>
           </div>
         </div>
       </div>
@@ -101,7 +106,9 @@ export function HomeFooter() {
   )
 }
 
-function FooterColumn({ title, items }: { title: string; items: string[] }) {
+type FooterItem = string | { label: string; href: string }
+
+function FooterColumn({ title, items }: { title: string; items: FooterItem[] }) {
   return (
     <div>
       <h3 className="mb-5 text-[1.7rem] font-semibold tracking-tight text-slate-950 dark:text-white">
@@ -109,7 +116,18 @@ function FooterColumn({ title, items }: { title: string; items: string[] }) {
       </h3>
       <ul className="space-y-3 text-[1.02rem] leading-7 text-slate-600 dark:text-white/72">
         {items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={typeof item === "string" ? item : item.label}>
+            {typeof item === "string" ? (
+              item
+            ) : (
+              <Link
+                href={item.href}
+                className="transition hover:text-red-700 dark:hover:text-red-300"
+              >
+                {item.label}
+              </Link>
+            )}
+          </li>
         ))}
       </ul>
     </div>

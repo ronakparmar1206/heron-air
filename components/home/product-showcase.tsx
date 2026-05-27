@@ -2,64 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
 
-type Product = {
-  eyebrow: string
-  title: string
-  description: string
-  image: string
-  tags: string[]
-}
-
-const products: Product[] = [
-  {
-    eyebrow: "High Pressure",
-    title: "High Pressure Compressor",
-    description:
-      "Built for applications that require strong and stable pressure output with dependable continuous performance.",
-    image: "/products/highpressure.png",
-    tags: ["High PSI", "Industrial", "Reliable"],
-  },
-  {
-    eyebrow: "Vacuum",
-    title: "Vacuum Pump",
-    description:
-      "Engineered vacuum solution for workshops and process lines that need consistent suction and low maintenance.",
-    image: "/products/vaccum.png",
-    tags: ["Vacuum", "Low Noise", "Service Ready"],
-  },
-  {
-    eyebrow: "Booster",
-    title: "Booster Compressor",
-    description:
-      "Pressure-boosting setup designed to lift output where standard compressor pressure is not enough.",
-    image: "/products/booster.png",
-    tags: ["Booster", "High Output", "Compact"],
-  },
-  {
-    eyebrow: "High Pressure Booster",
-    title: "High Pressure Booster Compressor",
-    description:
-      "Engineered booster configuration for applications that need elevated pressure with stable continuous delivery.",
-    image: "/products/highpressurebooster.png",
-    tags: ["High PSI", "Booster", "Heavy Duty"],
-  },
-  {
-    eyebrow: "Low Pressure",
-    title: "Low Pressure Compressor",
-    description:
-      "Efficient compressor range for everyday air supply needs with smooth operation and reduced running cost.",
-    image: "/products/lowpressure.png",
-    tags: ["Low PSI", "Energy Efficient"],
-  },
-  {
-    eyebrow: "Cooling",
-    title: "Compressor Refrigerator Unit",
-    description:
-      "Cooling companion unit for compressor systems to support stable operation in warmer conditions.",
-    image: "/products/refrigerator.png",
-    tags: ["Cooling", "Durable", "Workshop Ready"],
-  },
-]
+import { products } from "@/lib/products"
 
 export function ProductShowcase() {
   return (
@@ -85,7 +28,7 @@ export function ProductShowcase() {
 
         <div className="grid auto-rows-[minmax(250px,auto)] gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <ProductCard key={product.title} product={product} />
+            <ProductCard key={product.slug} product={product} />
           ))}
         </div>
       </div>
@@ -93,7 +36,11 @@ export function ProductShowcase() {
   )
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({
+  product,
+}: {
+  product: (typeof products)[number]
+}) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-300/90 bg-[#efefef] shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition hover:-translate-y-1 hover:border-slate-400 dark:border-white/12 dark:bg-[#0f1727]">
       <div className="relative h-56 overflow-hidden border-b border-slate-300/80 bg-[#f7f7f7] sm:h-64 dark:border-white/10 dark:bg-[#161f2f]">
@@ -114,7 +61,7 @@ function ProductCard({ product }: { product: Product }) {
           {product.title}
         </h3>
         <p className="line-clamp-3 min-h-18 text-[0.94rem] leading-6 text-slate-600 dark:text-slate-300">
-          {product.description}
+          {product.shortDescription}
         </p>
 
         <div className="mt-3 flex flex-wrap gap-2">
@@ -129,7 +76,7 @@ function ProductCard({ product }: { product: Product }) {
         </div>
 
         <Link
-          href="/contact"
+          href={`/products/${product.slug}`}
           className="mt-5 inline-flex h-10 w-full items-center justify-between rounded-md border border-slate-300 px-3 text-[0.68rem] font-bold tracking-[0.12em] text-slate-900 uppercase transition hover:border-red-600 hover:bg-red-600 hover:text-white dark:border-white/15 dark:text-white dark:hover:border-red-500 dark:hover:bg-red-600"
         >
           View Details

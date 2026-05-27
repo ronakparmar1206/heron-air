@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
+import { products } from "@/lib/products"
 
 export function HomeHeader() {
   const pathname = usePathname()
@@ -36,14 +37,10 @@ export function HomeHeader() {
     { label: "Products", href: "/#products", active: false },
     ...navItemsAfterProducts,
   ] as const
-  const productItems = [
-    "High Pressure Compressor",
-    "Vacuum Pump",
-    "Booster Compressor",
-    "High Pressure Booster Compressor",
-    "Low Pressure Compressor",
-    "Compressor Refrigerator Unit",
-  ] as const
+  const productItems = products.map((product) => ({
+    label: product.title,
+    href: `/products/${product.slug}`,
+  }))
 
   const openProductsMenu = React.useCallback(() => {
     if (productsCloseTimer.current) {
@@ -150,17 +147,17 @@ export function HomeHeader() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 6 }}
                   transition={{ duration: 0.16, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 z-50 mt-5 w-[min(86vw,980px)] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_18px_34px_rgba(15,23,42,0.14)]"
+                  className="absolute top-full left-1/2 z-50 mt-5 w-[min(86vw,980px)] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_18px_34px_rgba(15,23,42,0.14)] dark:border-white/10 dark:bg-[#0f1727] dark:shadow-[0_18px_34px_rgba(2,6,23,0.5)]"
                 >
                   <div className="grid grid-cols-2 gap-2">
                     {productItems.map((product) => (
-                      <div key={product}>
+                      <div key={product.label}>
                         <Link
-                          href="/#products"
-                          className="group flex items-center rounded-xl px-3 py-2.5 text-[1.02rem] leading-snug text-slate-600 transition-all duration-150 hover:bg-slate-50 hover:pl-4 hover:text-red-700"
+                          href={product.href}
+                          className="group flex items-center rounded-xl px-3 py-2.5 text-[1.02rem] leading-snug text-slate-600 transition-all duration-150 hover:bg-slate-50 hover:pl-4 hover:text-red-700 dark:text-slate-200 dark:hover:bg-white/6 dark:hover:text-red-300"
                         >
                           <span className="mr-2.5 h-1.5 w-1.5 rounded-full bg-slate-300 transition group-hover:bg-red-500" />
-                          {product}
+                          {product.label}
                         </Link>
                       </div>
                     ))}

@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Clock3Icon, MailIcon, PhoneCallIcon } from "lucide-react"
+import { ArrowUpRightIcon, Clock3Icon, MailIcon, PhoneCallIcon } from "lucide-react"
 
+import { InquireForm } from "@/components/contact/inquire-form"
 import { HomeFooter } from "@/components/home/home-footer"
 import { HomeHeader } from "@/components/home/home-header"
 
@@ -54,109 +55,121 @@ export default function ContactPage() {
       <HomeHeader />
 
       <main>
-        <section className="relative overflow-hidden bg-[#050608] py-18 text-white sm:py-22">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(239,68,68,0.18),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_20%)]" />
-          <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <div className="inline-flex border border-white/12 bg-white/6 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.28em] text-white/80 uppercase">
+        <section className="relative overflow-hidden bg-[#050608] py-16 text-white sm:py-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_0%,rgba(239,68,68,0.2),transparent_32%),radial-gradient(circle_at_80%_80%,rgba(56,189,248,0.14),transparent_34%)]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="inline-flex border border-white/15 bg-white/8 px-3 py-1 text-[0.66rem] font-semibold tracking-[0.26em] text-white/80 uppercase">
               Contact Heron Air
             </div>
-            <h1 className="mt-5 text-[2.4rem] font-semibold tracking-tight sm:text-[4.2rem]">
-              Contact Us
+            <h1 className="mt-4 text-[2.2rem] font-semibold tracking-tight sm:text-[3.1rem]">
+              Contact & Inquiry Center
             </h1>
-            <p className="mt-5 text-sm tracking-[0.22em] text-white/62 uppercase">
-              Home / Contact Us
+            <p className="mt-3 max-w-2xl text-[0.96rem] leading-7 text-white/78">
+              For direct communication, use contact details. For quotations and
+              requirements, use the inquiry form.
             </p>
           </div>
         </section>
 
-        <section className="bg-white transition-colors dark:bg-[#0a1322]">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[420px_minmax(0,1fr)] lg:px-8 lg:py-20">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
-                  Our Address
-                </h2>
-                <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />
-              </div>
+        <section className="bg-white px-4 py-12 transition-colors sm:px-6 lg:px-8 lg:py-16 dark:bg-[#0a1322]">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-6 lg:grid-cols-2">
+              <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_16px_38px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#0f1727]">
+                <div className="flex items-center justify-between gap-4">
+                  <h2 className="text-[1.65rem] font-semibold tracking-tight text-slate-950 dark:text-white">
+                    Contact Details
+                  </h2>
+                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[0.66rem] font-semibold tracking-[0.08em] text-slate-600 uppercase dark:border-white/10 dark:bg-white/6 dark:text-slate-200">
+                    Address + Phone
+                  </span>
+                </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                {addresses.map((address) => (
-                  <article key={address.title} className="pb-6">
-                    <h3 className="text-[1.45rem] font-semibold tracking-tight text-slate-950 dark:text-white">
-                      {address.title}
-                    </h3>
-                    <div className="mt-4 space-y-1 text-[1rem] leading-8 text-slate-600 dark:text-slate-300">
-                      {address.lines.map((line) => (
-                        <p key={line}>{line}</p>
-                      ))}
-                    </div>
-                    <div className="mt-5 h-px bg-slate-200 dark:bg-white/10" />
-                  </article>
-                ))}
-              </div>
-
-              <div className="space-y-4">
-                {contactMethods.map((method) => {
-                  return (
-                    <div key={method.title}>
-                      <div>
-                        <p className="text-[1rem] leading-8 text-slate-700 dark:text-slate-300">
-                          <span className="font-semibold text-slate-950 dark:text-white">
-                            {method.title}:
-                          </span>{" "}
-                          {method.content}
-                        </p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {addresses.map((address) => (
+                    <div
+                      key={address.title}
+                      className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/6"
+                    >
+                      <h3 className="text-lg font-semibold text-slate-950 dark:text-white">
+                        {address.title}
+                      </h3>
+                      <div className="mt-2 space-y-1 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                        {address.lines.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+                  ))}
+                </div>
 
-              <div className="pt-8">
-                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
-                  Email Us
-                </h2>
-                <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />
-                <p className="mt-6 text-[1rem] leading-8 text-slate-600 dark:text-slate-300">
-                  Whether you are looking for product details, service support,
-                  spare guidance, or a quote for your compressor requirement,
-                  our team is ready to respond.
+                <div className="mt-6 space-y-3">
+                  {contactMethods.map((method) => {
+                    const Icon = method.icon
+                    return (
+                      <div
+                        key={method.title}
+                        className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 dark:border-white/10 dark:bg-[#111b2c]"
+                      >
+                        <div className="mt-0.5 rounded-md bg-red-50 p-2 text-red-700 dark:bg-red-500/12 dark:text-red-300">
+                          <Icon className="size-4" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold tracking-[0.1em] text-slate-500 uppercase dark:text-slate-300">
+                            {method.title}
+                          </p>
+                          <p className="mt-1 text-sm text-slate-800 dark:text-slate-100">
+                            {method.content}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </article>
+
+              <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_16px_38px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#0f1727]">
+                <div className="flex items-center justify-between gap-4">
+                  <h2 className="text-[1.65rem] font-semibold tracking-tight text-slate-950 dark:text-white">
+                    Inquiry Form
+                  </h2>
+                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[0.66rem] font-semibold tracking-[0.08em] text-slate-600 uppercase dark:border-white/10 dark:bg-white/6 dark:text-slate-200">
+                    Quote Request
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  Fill this form for product recommendation, quantity quote, and
+                  technical assistance.
                 </p>
-                <Link
-                  href="mailto:heronair21@gmail.com"
-                  className="mt-6 inline-flex h-12 items-center justify-center rounded-none bg-red-700 px-8 text-sm font-semibold tracking-[0.08em] text-white uppercase transition hover:bg-red-800"
-                >
-                  Write A Message
-                </Link>
-              </div>
+
+                <div className="mt-5">
+                  <InquireForm />
+                </div>
+              </article>
             </div>
 
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-[2rem] font-semibold tracking-tight text-slate-950 dark:text-white">
-                  Get Directions
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#0f1727] sm:p-5">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <h2 className="text-[1.35rem] font-semibold tracking-tight text-slate-950 dark:text-white">
+                  Location Map
                 </h2>
-                <div className="mt-4 h-px bg-slate-200 dark:bg-white/10" />
+                <Link
+                  href={mapUrl}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition hover:text-red-700 dark:text-slate-200 dark:hover:text-red-300"
+                >
+                  Open In Google Maps
+                  <ArrowUpRightIcon className="size-4" />
+                </Link>
               </div>
 
-              <div className="overflow-hidden border border-slate-200 bg-white dark:border-white/10 dark:bg-[#0f1727]">
+              <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-white/10">
                 <iframe
                   title="Heron Air office location map"
                   src={mapEmbedUrl}
-                  className="h-[560px] w-full border-0"
+                  className="h-[420px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
                 />
-              </div>
-
-              <div className="flex justify-start">
-                <Link
-                  href={mapUrl}
-                  className="text-base font-semibold text-slate-800 underline underline-offset-4 transition hover:text-red-700 dark:text-slate-200 dark:hover:text-red-300"
-                >
-                  Get Direction
-                </Link>
               </div>
             </div>
           </div>

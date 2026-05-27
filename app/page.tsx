@@ -6,6 +6,7 @@ import { HomeFooter } from "@/components/home/home-footer"
 import { HomeHeader } from "@/components/home/home-header"
 import { IndustriesSection } from "@/components/home/industries-section"
 import { ProductShowcase } from "@/components/home/product-showcase"
+import { TechnicalHighlights } from "@/components/home/technical-highlights"
 import { TestimonialShowcase } from "@/components/testimonial-showcase"
 import { FaqSection } from "@/components/home/faq-section"
 
@@ -23,6 +24,7 @@ export default function Page() {
       <main id="home">
         <HeroSlider />
         <FeatureStrip />
+        <TechnicalHighlights />
         <AboutSection />
         <ProductShowcase />
         <IndustriesSection />

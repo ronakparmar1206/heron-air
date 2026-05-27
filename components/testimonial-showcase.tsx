@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 
 import {
   Carousel,
@@ -30,17 +29,6 @@ const testimonials = [
     author: "R. Krishnan",
     location: "Chennai",
   },
-] as const
-
-const stats = [
-  { value: "2002", label: "Started", className: "bg-red-600 text-white" },
-  { value: "2148", label: "Customers", className: "bg-slate-950 text-white" },
-  {
-    value: "1248",
-    label: "Projects Completed",
-    className: "bg-red-600 text-white",
-  },
-  { value: "21", label: "Team Members", className: "bg-slate-950 text-white" },
 ] as const
 
 export function TestimonialShowcase() {
@@ -77,54 +65,57 @@ export function TestimonialShowcase() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-white pt-6 pb-16 transition-colors lg:pt-10 lg:pb-20 dark:bg-[#08101d]"
+      className="relative overflow-hidden bg-[#f7f8fb] py-14 transition-colors sm:py-16 lg:py-20 dark:bg-[#08101d]"
     >
-      <div className="relative mt-10">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(220,38,38,0.08),transparent_34%),radial-gradient(circle_at_84%_86%,rgba(56,189,248,0.08),transparent_36%)]" />
+
+      <div className="relative mx-auto max-w-[76rem] px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 max-w-3xl">
+          <div className="flex items-center gap-2 text-[0.64rem] font-bold tracking-[0.24em] text-red-700 uppercase dark:text-red-300">
+            <span className="h-px w-7 bg-red-600" />
+            Client Feedback
+          </div>
+          <h2 className="mt-3 max-w-2xl text-[2.15rem] leading-[0.96] font-black tracking-tight text-slate-950 uppercase sm:text-[3rem] dark:text-white">
+            Trusted{" "}
+            <span className="text-red-600 dark:text-red-300">Client</span>{" "}
+            Voices
+          </h2>
+          <p className="mt-3 text-[0.96rem] leading-7 text-slate-600 dark:text-slate-300">
+            Real experience from buyers who use Heron Air systems in daily
+            operations and production environments.
+          </p>
+        </div>
+
         <Carousel
           setApi={setApi}
           opts={{ loop: true, align: "start" }}
-          className="relative overflow-hidden bg-[#111214]"
+          className="relative overflow-hidden rounded-2xl border border-slate-200 bg-[url('/background.png')] bg-cover bg-bottom bg-no-repeat shadow-[0_24px_50px_rgba(15,23,42,0.16)] dark:border-white/10"
         >
-          <Image
-            src="/heron/heron-testimonial.jpg"
-            alt="Heron Air compressor testimonial background"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-black/58" />
-          <div className="absolute inset-0 bg-linear-to-b from-black/28 via-black/42 to-black/58" />
-          <div className="pointer-events-none absolute inset-x-0 top-12 z-0 flex justify-center">
-            <Image
-              src="/heron/heron-testimonial.jpg"
-              alt=""
-              aria-hidden="true"
-              width={1920}
-              height={420}
-              sizes="100vw"
-              className="h-full w-full object-contain object-center opacity-18"
-            />
-          </div>
+          <div className="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-red-500/18 blur-3xl" />
+          <div className="absolute right-[-70px] bottom-[-90px] h-80 w-80 rounded-full bg-sky-500/16 blur-3xl" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950/50 via-slate-900/28 to-slate-950/16" />
 
           <CarouselContent className="-ml-0">
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.author} className="pl-0">
-                <div className="relative flex min-h-[360px] items-end justify-center px-4 py-12 sm:px-8 lg:min-h-[430px] lg:px-12">
-                  <div className="mx-auto max-w-4xl text-center text-white">
-                    <blockquote className="mx-auto max-w-4xl">
-                      <div className="mb-6 flex items-center justify-between text-5xl leading-none text-white/22 sm:text-6xl">
-                        <span aria-hidden="true">&ldquo;</span>
-                        <span aria-hidden="true">&rdquo;</span>
-                      </div>
-                      <p className="text-base leading-8 text-balance text-white/92 italic sm:text-[1.12rem] sm:leading-9 lg:text-[1.28rem] lg:leading-10">
+                <div className="relative flex min-h-[340px] items-center px-4 py-10 sm:px-7 lg:min-h-[390px] lg:px-12">
+                  <div className="w-full max-w-3xl rounded-2xl border border-white/18 bg-white/10 p-6 text-white shadow-[0_20px_40px_rgba(2,6,23,0.35)] backdrop-blur-sm sm:p-8">
+                    <span
+                      className="text-6xl leading-none font-black text-red-300/90 sm:text-7xl"
+                      aria-hidden="true"
+                    >
+                      &ldquo;
+                    </span>
+                    <blockquote className="mt-3">
+                      <p className="text-[1.08rem] leading-8 font-semibold tracking-[0.01em] text-white italic sm:text-[1.28rem] sm:leading-10">
                         {testimonial.quote}
                       </p>
                     </blockquote>
-                    <div className="mt-7">
-                      <p className="text-lg font-semibold text-white sm:text-xl">
+                    <div className="mt-6 border-t border-white/18 pt-4">
+                      <p className="text-xl font-extrabold tracking-tight text-white">
                         {testimonial.author}
                       </p>
-                      <p className="mt-1 text-sm tracking-[0.18em] text-white/68 uppercase">
+                      <p className="mt-1 text-[0.7rem] font-semibold tracking-[0.22em] text-white/75 uppercase">
                         {testimonial.location}
                       </p>
                     </div>
@@ -134,7 +125,7 @@ export function TestimonialShowcase() {
             ))}
           </CarouselContent>
 
-          <div className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 justify-center gap-3">
+          <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 justify-center gap-2.5">
             {testimonials.map((testimonial, index) => (
               <button
                 key={testimonial.author}
@@ -144,17 +135,17 @@ export function TestimonialShowcase() {
                 onClick={() => api?.scrollTo(index)}
                 className={
                   current === index
-                    ? "h-3 w-3 rounded-full bg-white"
-                    : "h-3 w-3 rounded-full border border-white/70 bg-transparent"
+                    ? "h-2.5 w-8 rounded-full bg-red-500"
+                    : "h-2.5 w-2.5 rounded-full bg-white/55"
                 }
               />
             ))}
           </div>
         </Carousel>
-      </div>
 
-      <div className="mx-auto max-w-[76rem] px-4 sm:px-6 lg:px-8">
-        <AnimatedStats />
+        <div className="mt-9">
+          <AnimatedStats />
+        </div>
       </div>
     </section>
   )

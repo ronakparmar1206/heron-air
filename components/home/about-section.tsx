@@ -36,7 +36,7 @@ export function AboutSection() {
           <div className="grid min-h-[500px] grid-cols-[1.02fr_0.98fr] gap-3">
             <div className="group relative overflow-hidden rounded-[0.75rem] border border-slate-200 bg-linear-to-b from-[#2d2f33] via-[#474b49] to-[#6c706c] shadow-[0_20px_50px_rgba(15,23,42,0.14)]">
               <Image
-                src="/heron/heron-about.jpg"
+                src="/heron/heron-about.png"
                 alt="Heron Air compressor product"
                 fill
                 sizes="(max-width: 1024px) 100vw, 32vw"

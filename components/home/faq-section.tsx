@@ -1,29 +1,18 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaClock,
-  FaFacebookF,
-  FaTwitter,
-  FaPinterestP,
-  FaLinkedinIn,
-  FaTelegramPlane,
-} from "react-icons/fa"
 
 const faqItems = [
   {
     value: "item-1",
     trigger: "What types of air compressors do you offer?",
     content:
-      "We offer a comprehensive range including High Pressure, Low Pressure, Medium Pressure compressors, and Vacuum Pump solutions. Each is designed for specific industrial applications.",
+      "We offer a comprehensive range including High Pressure, Low Pressure, Medium Pressure, Oil Free compressors, and Vacuum Pump solutions. Each is designed for specific industrial applications.",
   },
   {
     value: "item-2",
@@ -83,82 +72,6 @@ export function FaqSection() {
             </AccordionItem>
           ))}
         </Accordion>
-
-        {/* CTA + Social icons moved below the accordion */}
-        <div className="mt-12 text-center">
-          <div className="flex justify-center">
-            <Button className="rounded-md bg-red-700 px-8 py-4 tracking-wider text-white uppercase hover:bg-red-800">
-              Contact Our Company
-            </Button>
-          </div>
-
-          <div className="mt-6 flex justify-center gap-3">
-            <a
-              href="#"
-              aria-label="facebook"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
-            >
-              <FaFacebookF size={16} />
-            </a>
-            <a
-              href="#"
-              aria-label="twitter"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
-            >
-              <FaTwitter size={16} />
-            </a>
-            <a
-              href="#"
-              aria-label="pinterest"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
-            >
-              <FaPinterestP size={16} />
-            </a>
-            <a
-              href="#"
-              aria-label="linkedin"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
-            >
-              <FaLinkedinIn size={16} />
-            </a>
-            <a
-              href="#"
-              aria-label="telegram"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/6"
-            >
-              <FaTelegramPlane size={16} />
-            </a>
-          </div>
-
-          <div className="mt-8">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
-                <FaPhoneAlt className="shrink-0 text-red-700 dark:text-red-400" />
-                <a
-                  href="tel:+919904913616"
-                  className="font-medium break-words text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
-                >
-                  +91 9904 913 616
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
-                <FaEnvelope className="shrink-0 text-red-700 dark:text-red-400" />
-                <a
-                  href="mailto:heronair21@gmail.com"
-                  className="font-medium break-all text-slate-900 hover:text-red-700 dark:text-white dark:hover:text-red-400"
-                >
-                  heronair21@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-center dark:border-white/10 dark:bg-white/6">
-                <FaClock className="shrink-0 text-red-700 dark:text-red-400" />
-                <span className="font-medium text-slate-900 dark:text-white">
-                  Mon - Sat, 9AM - 7PM
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )
