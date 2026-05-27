@@ -45,6 +45,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     src={product.image}
                     alt={product.title}
                     fill
+                    quality={76}
                     sizes="(max-width: 1024px) 100vw, 46vw"
                     className="object-contain p-4"
                   />

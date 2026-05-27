@@ -48,6 +48,7 @@ function ProductCard({
           src={product.image}
           alt={product.title}
           fill
+          quality={72}
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-contain p-4 transition duration-500 group-hover:scale-[1.03] sm:p-5"
         />

@@ -11,7 +11,7 @@ import {
 
 const hero = {
   eyebrow: "Heron Air - Since 2002",
-  titleLead: "Global Top-Selling",
+  titleLead: "Top Selling",
   highlight: "High Pressure Compressor",
   // outline: "Booster",
   description:
@@ -82,7 +82,6 @@ export function HeroSlider() {
               Explore Products
             </Link>
           </div>
-
         </div>
 
         <div className="relative flex min-h-[400px] items-center justify-center sm:min-h-[500px] lg:min-h-[560px]">
