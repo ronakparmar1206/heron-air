@@ -70,8 +70,8 @@ export const products: Product[] = [
   },
   {
     slug: "booster-compressor",
-    eyebrow: "Booster",
-    title: "Booster Compressor",
+    eyebrow: "Low Pressure Booster",
+    title: "Low Pressure Booster Compressor",
     shortDescription:
       "Pressure-boosting setup designed to lift output where standard compressor pressure is not enough.",
     description:

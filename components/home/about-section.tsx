@@ -39,6 +39,8 @@ export function AboutSection() {
                 src="/heron/heron-about.png"
                 alt="Heron Air compressor product"
                 fill
+                loading="lazy"
+                quality={58}
                 sizes="(max-width: 1024px) 100vw, 32vw"
                 className="object-contain object-center py-3 transition duration-700 group-hover:scale-[1.01]"
               />
@@ -50,6 +52,8 @@ export function AboutSection() {
                   src="/heron/heron-about1.jpg"
                   alt="Heron Air compressor assembly detail"
                   fill
+                  loading="lazy"
+                  quality={65}
                   sizes="(max-width: 1024px) 100vw, 24vw"
                   className="object-cover transition duration-700 group-hover:scale-[1.02]"
                 />
@@ -60,6 +64,8 @@ export function AboutSection() {
                   src="/heron/heron-about2.jpg"
                   alt="Heron Air filtration and component detail"
                   fill
+                  loading="lazy"
+                  quality={65}
                   sizes="(max-width: 1024px) 100vw, 24vw"
                   className="object-cover transition duration-700 group-hover:scale-[1.02]"
                 />

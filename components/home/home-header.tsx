@@ -185,7 +185,7 @@ export function HomeHeader() {
         <div className="flex items-center gap-2 text-slate-600 sm:gap-3 dark:text-slate-300">
           <ThemeToggle />
           <Link
-            href="/#contact"
+            href="/contact"
             className="hidden h-8 items-center justify-center rounded-lg bg-red-600 px-5 text-sm font-medium text-white transition hover:bg-red-700 sm:inline-flex"
           >
             Inquire Now
@@ -227,7 +227,7 @@ export function HomeHeader() {
           </div>
           <div className="mt-4 flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3 dark:border-white/10 dark:bg-white/5">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex h-10 items-center justify-center rounded-lg bg-red-600 px-5 text-sm font-medium text-white transition hover:bg-red-700"
             >
               Inquire Now

@@ -3,35 +3,16 @@
 import { useEffect, useRef, useState } from "react"
 import { CheckIcon, ChevronDownIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
-import { z } from "zod/v4"
 
+import { inquirySchema, type InquiryFormValues } from "@/lib/inquiry-schema"
 import { products } from "@/lib/products"
 import { Input } from "@/components/ui/input"
 
 const productOptions = products.map((product) => product.title)
 
-const inquirySchema = z.object({
-  fullName: z.string().min(2, "Please enter your full name."),
-  email: z.email("Enter a valid email address."),
-  phone: z
-    .string()
-    .min(8, "Enter a valid phone number.")
-    .max(20, "Phone number is too long."),
-  product: z.string().min(1, "Please select a product."),
-  quantity: z
-    .number({ error: "Please enter required quantity." })
-    .int("Quantity must be a whole number.")
-    .positive("Quantity must be greater than zero."),
-  message: z
-    .string()
-    .min(20, "Please add at least 20 characters.")
-    .max(1000, "Message is too long."),
-})
-
-type InquiryFormValues = z.infer<typeof inquirySchema>
-
 export function InquireForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState("")
   const [productOpen, setProductOpen] = useState(false)
   const productDropdownRef = useRef<HTMLDivElement | null>(null)
 
@@ -62,7 +43,10 @@ export function InquireForm() {
     return () => document.removeEventListener("mousedown", handlePointerDown)
   }, [])
 
-  function onSubmit(rawData: InquiryFormValues) {
+  async function onSubmit(rawData: InquiryFormValues) {
+    setIsSubmitted(false)
+    setSubmitError("")
+
     const result = inquirySchema.safeParse(rawData)
 
     if (!result.success) {
@@ -78,7 +62,25 @@ export function InquireForm() {
       return
     }
 
-    console.log("Inquiry submitted", result.data)
+    const response = await fetch("/api/inquiry", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(result.data),
+    })
+
+    if (!response.ok) {
+      const data = (await response.json().catch(() => null)) as {
+        message?: string
+      } | null
+
+      setSubmitError(
+        data?.message ?? "Could not send inquiry right now. Please try again.",
+      )
+      return
+    }
+
     setIsSubmitted(true)
     form.reset({
       fullName: "",
@@ -95,6 +97,12 @@ export function InquireForm() {
       {isSubmitted ? (
         <div className="mt-5 rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
           Inquiry submitted successfully. We will reach out shortly.
+        </div>
+      ) : null}
+
+      {submitError ? (
+        <div className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-200">
+          {submitError}
         </div>
       ) : null}
 

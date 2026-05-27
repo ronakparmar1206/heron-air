@@ -126,7 +126,7 @@ export default function ServicesPage() {
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex h-12 items-center justify-center rounded-md bg-red-600 px-6 text-sm font-semibold tracking-[0.08em] text-white uppercase transition hover:bg-red-700"
                   >
                     Request Service Support
@@ -207,7 +207,7 @@ export default function ServicesPage() {
 
                 <div className="mt-8">
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex h-13 items-center justify-center border-b-2 border-white/35 bg-transparent px-0 text-base font-semibold tracking-[0.08em] text-white uppercase transition hover:text-red-300"
                   >
                     We Do It For You With Efficiency
@@ -226,7 +226,7 @@ export default function ServicesPage() {
 
             <div className="mt-10 flex justify-center">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="inline-flex h-14 items-center justify-center rounded-sm bg-red-700 px-9 text-base font-semibold tracking-[0.08em] text-white uppercase transition hover:bg-red-800"
               >
                 Inquire Now!
@@ -391,7 +391,7 @@ export default function ServicesPage() {
                 </div>
 
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-red-600 px-6 text-sm font-semibold tracking-[0.08em] text-white uppercase transition hover:bg-red-700"
                 >
                   Talk To Heron Air
