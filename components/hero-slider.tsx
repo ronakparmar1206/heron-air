@@ -45,6 +45,7 @@ export function HeroSlider() {
             <span className="block">
               {hero.titleLead}{" "}
               <span className="text-red-600">{hero.highlight}</span>
+              <span className="ml-2">IN INDIA</span>
             </span>
             {/* titleTail removed and merged into subtitle for better layout */}
           </h1>
