@@ -1,8 +1,4 @@
-import {
-  MailIcon,
-  MapPinIcon,
-  PhoneCallIcon,
-} from "lucide-react"
+import { MailIcon, MapPinIcon, PhoneCallIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { FaInstagram, FaWhatsapp } from "react-icons/fa"
@@ -26,14 +22,11 @@ export function HomeFooter() {
           <div className="space-y-4 text-[1.02rem] leading-8 text-slate-600 dark:text-white/78">
             <p className="flex items-start gap-3">
               <MapPinIcon className="mt-1 size-5 shrink-0" />
-              <span>
-                B-80, Ajay Tenament 5, New Gajendranagar Society, Opp. New RTO,
-                Vastral, Ahmedabad - 382418.
-              </span>
+              <span>132 Deepsprings Crescent, Maple, ON L4A3L6, Canada</span>
             </p>
             <p className="flex items-center gap-3">
               <PhoneCallIcon className="size-5 shrink-0" />
-              <span>+91 9904 913 616</span>
+              <span>+16479145148</span>
             </p>
             <p className="flex items-center gap-3">
               <MailIcon className="size-5 shrink-0" />
@@ -50,12 +43,18 @@ export function HomeFooter() {
               href: "/products/high-pressure-compressor",
             },
             { label: "Vacuum Pump", href: "/products/vacuum-pump" },
-            { label: "Booster Compressor", href: "/products/booster-compressor" },
+            {
+              label: "Booster Compressor",
+              href: "/products/booster-compressor",
+            },
             {
               label: "High Pressure Booster Compressor",
               href: "/products/high-pressure-booster-compressor",
             },
-            { label: "Oil Free Compressor", href: "/products/oil-free-compressor" },
+            {
+              label: "Oil Free Compressor",
+              href: "/products/oil-free-compressor",
+            },
             { label: "View All Products", href: "/#products" },
           ]}
         />
@@ -84,7 +83,7 @@ export function HomeFooter() {
               <FaInstagram className="size-4.5" />
             </Link>
             <Link
-              href="https://wa.me/918128333901"
+              href="https://wa.me/16479049773"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -108,7 +107,13 @@ export function HomeFooter() {
 
 type FooterItem = string | { label: string; href: string }
 
-function FooterColumn({ title, items }: { title: string; items: FooterItem[] }) {
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string
+  items: FooterItem[]
+}) {
   return (
     <div>
       <h3 className="mb-5 text-[1.7rem] font-semibold tracking-tight text-slate-950 dark:text-white">

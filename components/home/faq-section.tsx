@@ -18,7 +18,7 @@ const faqItems = [
     value: "item-2",
     trigger: "What is your delivery timeline?",
     content:
-      "We guarantee 100% on-time delivery within India. Most orders are processed and shipped within 5-7 business days depending on the product complexity.",
+      "We guarantee 100% on-time delivery within North America. Most orders are processed and shipped within 5-7 business days depending on the product complexity.",
   },
   {
     value: "item-3",
@@ -42,7 +42,7 @@ const faqItems = [
     value: "item-6",
     trigger: "How can I request a quote?",
     content:
-      "You can request a quote through our website, call us directly at +91 9904 913 616 or +91 8128 333 901, or email us at heronair21@gmail.com.",
+      "You can request a quote through our website, call us directly at +16479145148 or +16479049773, or email us at heronair21@gmail.com.",
   },
 ]
 

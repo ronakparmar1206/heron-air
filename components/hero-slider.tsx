@@ -11,9 +11,10 @@ import {
 
 const hero = {
   eyebrow: "Heron Air - Since 2002",
-  titleLead: "Top Selling",
-  highlight: "High Pressure Compressor",
+  titleLead: "Top Manufacturers of",
+  highlight: "Compressors",
   // outline: "Booster",
+  subTitle: "NORTH AMERICA — NOW ESTABLISHING THEIR FOOTPRINT",
   description:
     "Proven across global industries for stable pressure output, faster air delivery, and long service life.",
   image: "/heron/heron-air-compressors-manufacturer-slider.png",
@@ -40,15 +41,18 @@ export function HeroSlider() {
             <span className="truncate">{hero.eyebrow}</span>
           </div>
 
-          <h1 className="mt-7 text-[2.35rem] leading-[1] font-black text-slate-950 uppercase sm:text-[3.75rem] lg:text-[4.45rem] dark:text-white">
-            {hero.titleLead}
-            <br />
-            <span className="text-red-600">{hero.highlight}</span>
-            {/* <br />
-            <span className="text-transparent [-webkit-text-stroke:1.5px_rgb(15_23_42)] dark:[-webkit-text-stroke:1.5px_rgb(255_255_255)]">
-              {hero.outline}
-            </span> */}
+          <h1 className="mt-7 text-3xl leading-tight font-extrabold tracking-tight text-slate-950 uppercase sm:text-4xl lg:text-5xl dark:text-white">
+            <span className="block">
+              {hero.titleLead}{" "}
+              <span className="text-red-600">{hero.highlight}</span>
+            </span>
+            {/* titleTail removed and merged into subtitle for better layout */}
           </h1>
+          {hero.subTitle ? (
+            <p className="mt-3 text-sm font-medium tracking-wide text-slate-700 uppercase sm:text-base dark:text-slate-300">
+              {hero.subTitle}
+            </p>
+          ) : null}
 
           <p className="mt-6 max-w-[30rem] text-[0.98rem] leading-7 text-slate-600 dark:text-slate-300">
             {hero.description}

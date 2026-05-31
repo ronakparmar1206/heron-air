@@ -1,5 +1,10 @@
 import Link from "next/link"
-import { ArrowUpRightIcon, Clock3Icon, MailIcon, PhoneCallIcon } from "lucide-react"
+import {
+  ArrowUpRightIcon,
+  Clock3Icon,
+  MailIcon,
+  PhoneCallIcon,
+} from "lucide-react"
 
 import { InquireForm } from "@/components/contact/inquire-form"
 import { HomeFooter } from "@/components/home/home-footer"
@@ -7,22 +12,8 @@ import { HomeHeader } from "@/components/home/home-header"
 
 const addresses = [
   {
-    title: "Office",
-    lines: [
-      "B-80, Ajay Tenament 5,",
-      "New Gajendranagar Society,",
-      "Opp. New RTO, Vastral,",
-      "Ahmedabad - 382418, Gujarat, India.",
-    ],
-  },
-  {
-    title: "Factory",
-    lines: [
-      "11, Abhishree Estate,",
-      "B/h. Vepari Mahamandal,",
-      "Odhav, Ahmedabad - 382418,",
-      "Gujarat, India.",
-    ],
+    title: "Head Office",
+    lines: ["132 Deepsprings Crescent", "Maple, ON L4A3L6", "Canada"],
   },
 ] as const
 
@@ -35,7 +26,7 @@ const contactMethods = [
   {
     icon: PhoneCallIcon,
     title: "Mobile",
-    content: "+91 9904 913 616 | +91 8128 333 901",
+    content: "+16479145148 | +16479049773",
   },
   {
     icon: Clock3Icon,
@@ -46,9 +37,9 @@ const contactMethods = [
 
 export default function ContactPage() {
   const mapUrl =
-    "https://www.google.com/maps?cid=925461206300892185&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed"
+    "https://www.google.com/maps/search/?api=1&query=132+Deepsprings+Crescent+Maple+ON+L4A3L6"
   const mapEmbedUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9678837759075!2d72.67293219999999!3d23.024951400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a88a86bca9%3A0xcd7e61056f81c19!2sHeron%20Air!5e0!3m2!1sen!2sin!4v1779535414952!5m2!1sen!2sin"
+    "https://www.google.com/maps?q=132+Deepsprings+Crescent+Maple+ON+L4A3L6&output=embed"
 
   return (
     <div className="min-h-screen bg-[#f5f6f8] transition-colors dark:bg-[#08101d]">
@@ -147,7 +138,7 @@ export default function ContactPage() {
               </article>
             </div>
 
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#0f1727] sm:p-5">
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_16px_38px_rgba(15,23,42,0.06)] sm:p-5 dark:border-white/10 dark:bg-[#0f1727]">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <h2 className="text-[1.35rem] font-semibold tracking-tight text-slate-950 dark:text-white">
                   Location Map

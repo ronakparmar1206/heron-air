@@ -21,7 +21,7 @@ export function HomeHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [productsOpen, setProductsOpen] = React.useState(false)
   const productsCloseTimer = React.useRef<ReturnType<typeof setTimeout> | null>(
-    null,
+    null
   )
 
   const navItemsBeforeProducts = [
@@ -75,15 +75,21 @@ export function HomeHeader() {
         <div className="mx-auto flex max-w-7xl flex-col gap-1.5 px-4 py-1.5 text-[0.65rem] font-medium tracking-[0.08em] uppercase sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-white/88 sm:gap-x-5">
             <span>Welcome To Heron Air</span>
-            <span>+91 9904 913 616</span>
-            <span>+91 8128 333 901</span>
+            <span>+16479145148</span>
+            <span>+16479049773</span>
             <span>info@heronair.in</span>
           </div>
           <div className="hidden flex-wrap items-center gap-5 text-white sm:flex">
-            <span className="inline-flex items-center gap-2">
+            <a
+              href="/brochure/Herom%20AIr%20Catalogue%20(1).pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2"
+            >
               <DownloadIcon className="size-3.5" />
               Download Brochure
-            </span>
+            </a>
             <span className="inline-flex items-center gap-2">
               <PhoneCallIcon className="size-3.5" />
               Call Us
