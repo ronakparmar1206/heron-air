@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import { inquirySchema, type InquiryFormValues } from "@/lib/inquiry-schema"
 import { products } from "@/lib/products"
 import { Input } from "@/components/ui/input"
+import { toast } from "sonner"
 
 const productOptions = products.map((product) => product.title)
 
@@ -76,7 +77,7 @@ export function InquireForm() {
       } | null
 
       setSubmitError(
-        data?.message ?? "Could not send inquiry right now. Please try again.",
+        data?.message ?? "Could not send inquiry right now. Please try again."
       )
       return
     }
@@ -90,22 +91,13 @@ export function InquireForm() {
       quantity: 1,
       message: "",
     })
+    toast.success(
+      "Thanks — we received your inquiry. We'll contact you within 1-2 business days."
+    )
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-[#f9fafb] p-4 dark:border-white/10 dark:bg-[#10192b] sm:p-5">
-      {isSubmitted ? (
-        <div className="mt-5 rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
-          Inquiry submitted successfully. We will reach out shortly.
-        </div>
-      ) : null}
-
-      {submitError ? (
-        <div className="mt-5 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-200">
-          {submitError}
-        </div>
-      ) : null}
-
+    <div className="rounded-xl border border-slate-200 bg-[#f9fafb] p-4 sm:p-5 dark:border-white/10 dark:bg-[#10192b]">
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
@@ -119,7 +111,7 @@ export function InquireForm() {
               id="fullName"
               type="text"
               {...form.register("fullName")}
-              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 transition outline-none focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
             />
             {form.formState.errors.fullName ? (
               <p className="mt-1 text-xs text-red-600">
@@ -139,7 +131,7 @@ export function InquireForm() {
               id="email"
               type="email"
               {...form.register("email")}
-              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 transition outline-none focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
             />
             {form.formState.errors.email ? (
               <p className="mt-1 text-xs text-red-600">
@@ -162,7 +154,7 @@ export function InquireForm() {
                 id="product"
                 type="button"
                 onClick={() => setProductOpen((open) => !open)}
-                className="flex h-11 w-full items-center justify-between rounded-md border border-slate-300 bg-white px-3 text-left text-sm text-slate-900 outline-none transition hover:border-slate-400 focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+                className="flex h-11 w-full items-center justify-between rounded-md border border-slate-300 bg-white px-3 text-left text-sm text-slate-900 transition outline-none hover:border-slate-400 focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
               >
                 <span className={selectedProduct ? "" : "text-slate-400"}>
                   {selectedProduct || "Select product"}
@@ -222,7 +214,7 @@ export function InquireForm() {
               id="phone"
               type="tel"
               {...form.register("phone")}
-              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 transition outline-none focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
             />
             {form.formState.errors.phone ? (
               <p className="mt-1 text-xs text-red-600">
@@ -243,7 +235,7 @@ export function InquireForm() {
               type="number"
               min={1}
               {...form.register("quantity", { valueAsNumber: true })}
-              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+              className="h-11 w-full rounded-md border border-slate-300 bg-white px-3 text-sm text-slate-900 transition outline-none focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
             />
             {form.formState.errors.quantity ? (
               <p className="mt-1 text-xs text-red-600">
@@ -264,7 +256,7 @@ export function InquireForm() {
             id="message"
             rows={5}
             {...form.register("message")}
-            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
+            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 transition outline-none focus:border-red-500 dark:border-white/12 dark:bg-[#0b1322] dark:text-white"
             placeholder="Tell us pressure requirement, application, installation location, and preferred timeline."
           />
           {form.formState.errors.message ? (
