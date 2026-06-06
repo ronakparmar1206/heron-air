@@ -77,7 +77,7 @@ export function HomeHeader() {
             <span>Welcome To Heron Air</span>
             <span>+16479145148</span>
             <span>+16479049773</span>
-            <span>info@heronair.in</span>
+            <span>info@heronair.ca</span>
           </div>
           <div className="hidden flex-wrap items-center gap-5 text-white sm:flex">
             <a

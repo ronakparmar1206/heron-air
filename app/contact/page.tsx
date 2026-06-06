@@ -21,7 +21,7 @@ const contactMethods = [
   {
     icon: MailIcon,
     title: "Email",
-    content: "heronair21@gmail.com | info@heronair.in",
+    content: "heronair21@gmail.com | info@heronair.ca",
   },
   {
     icon: PhoneCallIcon,

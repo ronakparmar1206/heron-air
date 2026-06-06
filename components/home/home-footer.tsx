@@ -30,7 +30,7 @@ export function HomeFooter() {
             </p>
             <p className="flex items-center gap-3">
               <MailIcon className="size-5 shrink-0" />
-              <span>heronair21@gmail.com</span>
+                <span>info@heronair.ca</span>
             </p>
           </div>
         </div>
